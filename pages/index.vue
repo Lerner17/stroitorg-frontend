@@ -50,7 +50,7 @@ export default {
 <style>
 .slider {
   border-top: 6px solid #ffb426;
-  height: 90vh;
+  height: 90vh !important;
   /* position: relative; */
 }
 
