@@ -63,7 +63,6 @@ export default {
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box;
-  border-bottom: 6px solid #ffb426;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
