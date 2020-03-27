@@ -1,33 +1,41 @@
 <template>
-  <hooper
-    class="slider"
-    :auto-play="true"
-    :play-speed="5000"
-    :wheel-control="false"
-  >
-    <slide v-for="slide in slider" :key="slide.id">
-      <div
-        class="slider__item"
-        :style="`background-image: url('${slide.url}');`"
+  <div>
+    <section>
+      <hooper
+        class="slider"
+        :auto-play="true"
+        :play-speed="5000"
+        :wheel-control="false"
       >
-        <div class="item__title">
-          <span class="item_h1">Мы лучший завод!</span>
-          <span class="item_text">Все так говорят!</span>
-          <base-button class="item_btn" size="large" color="danger"
-            >Подробнее</base-button
+        <slide v-for="slide in slider" :key="slide.id">
+          <div
+            class="slider__item"
+            :style="`background-image: url('${slide.url}');`"
           >
-        </div>
-      </div>
-    </slide>
-  </hooper>
+            <div class="item__title">
+              <span class="item_h1">Мы лучший завод!</span>
+              <span class="item_text">Все так говорят!</span>
+              <base-button class="item_btn" size="large" color="danger"
+                >Подробнее</base-button
+              >
+            </div>
+          </div>
+        </slide>
+      </hooper>
+    </section>
+    <Advantages />
+    <Team />
+  </div>
 </template>
 
 <script>
 import { Hooper, Slide } from 'hooper'
+import Advantages from '@/components/sections/advantages/Advantages'
 import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
+import Team from '@/components/sections/team/Team'
 export default {
-  components: { Hooper, Slide, BaseButton },
+  components: { Hooper, Slide, BaseButton, Advantages, Team },
   data() {
     return {
       slider: [
