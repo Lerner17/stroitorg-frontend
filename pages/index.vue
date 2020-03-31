@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <section>
+  <div class="Index">
+    <base-section dark>
       <hooper
         class="slider"
         :auto-play="true"
@@ -22,9 +22,13 @@
           </div>
         </slide>
       </hooper>
-    </section>
-    <Advantages />
-    <Team />
+    </base-section>
+    <base-section>
+      <Advantages />
+    </base-section>
+    <base-section dark>
+      <Team />
+    </base-section>
   </div>
 </template>
 
@@ -34,8 +38,9 @@ import Advantages from '@/components/sections/advantages/Advantages'
 import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
 import Team from '@/components/sections/team/Team'
+import BaseSection from '@/components/BaseSection'
 export default {
-  components: { Hooper, Slide, BaseButton, Advantages, Team },
+  components: { Hooper, Slide, BaseButton, Advantages, Team, BaseSection },
   data() {
     return {
       slider: [
@@ -46,8 +51,7 @@ export default {
         },
         {
           id: 2,
-          url:
-            'https://lh3.googleusercontent.com/proxy/Y7x_nnLjZew-LLBawtGcVJ03NkoW5iJT_q43c4FRhu0v9bAsSm558uFAZ5SxPPVduQC8GoZ1bwpHOXcfKj5XXcwTfhg3WjN4iHW-xg7SyQn385ner7_aGjuYvo4VCLfXh9IwmIIaJkpY8CuS0XVXjhrNl5AZ81WTMmgvRa_GbI5AQ5WMpz42EsK0hHr7zYg7eu-H6Yp7PjmLgZJu3eEPWOCGkEeFEmmytrP3bh4cU46_CTMb-XOM-qyft4oaGeKdNdFDr9rsUYqCtTa19l_ERA5OeNOLkPkYOCL1Nvqz0Ub2hGXo_ZTCyi2bMytsSdScjLKuQHnIVuiJ8B5PNQ'
+          url: 'http://placekitten.com/1440/2000'
         }
       ]
     }
@@ -56,9 +60,17 @@ export default {
 </script>
 
 <style>
+.Index {
+  background-color: #313131;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .slider {
   border-top: 6px solid #ffb426;
   height: 90vh !important;
+  max-width: 1920px;
   /* position: relative; */
 }
 

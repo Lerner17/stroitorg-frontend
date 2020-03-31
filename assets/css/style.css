@@ -12,6 +12,17 @@ body,
   height: 100%;
 }
 
+/* html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #313131;
+}
+
+body {
+  max-width: 1440px;
+} */
+
 h1 {
   font-size: 110px;
 }
@@ -50,6 +61,10 @@ mark {
 a {
   transition: all .3s ease-in-out;
   color: #b62e26;
+}
+
+.container {
+  max-width: 960px;
 }
 /* 
 ul {

@@ -24,5 +24,16 @@ export default {
 
 <style>
 .BaseSection {
+  /* padding: 70px 75px 30px 75px; */
+  background-color: #fff;
+  min-height: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.BaseSection--dark {
+  background-color: #313131;
+  color: white;
 }
 </style>

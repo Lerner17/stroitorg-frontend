@@ -1,7 +1,7 @@
 <template>
-  <section class="Advantages">
-    <div class="Advantages__title">
-      <span class="title__row">1</span>
+  <div class="Advantages">
+    <div class="Advantages__title mb-8">
+      <span class="title__row"></span>
       <h5>Наши приемущества</h5>
     </div>
     <hooper class="Advantages__slider" :settings="hooperSettings">
@@ -50,8 +50,7 @@
         </div>
       </slide>
     </hooper>
-    1
-  </section>
+  </div>
 </template>
 
 <script>
@@ -68,7 +67,7 @@ export default {
         breakpoints: {
           2400: {
             // 2400px ~
-            itemsToShow: 5
+            itemsToShow: 4
           },
           1800: {
             // 1800px ~ 2400px
@@ -76,7 +75,7 @@ export default {
           },
           1500: {
             // 1500px ~ 1800px
-            itemsToShow: 3
+            itemsToShow: 4
           },
           1100: {
             // 1100px ~ 1500px
@@ -100,9 +99,11 @@ export default {
 <style>
 .Advantages {
   padding: 0 75px 30px 75px;
-  background-color: #fff;
+  /* background-color: #fff; */
   min-height: 450px;
   margin-top: 50px;
+  width: 100%;
+  max-width: 1920px;
 }
 
 .Advantages__title {
@@ -123,6 +124,7 @@ export default {
 
 .Advantages__slider {
   height: auto !important;
+  width: 100%;
 }
 
 .Advantages__slider_item {

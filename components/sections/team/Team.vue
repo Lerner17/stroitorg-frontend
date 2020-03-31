@@ -1,10 +1,29 @@
 <template>
-  <base-section dark></base-section>
+  <div>
+    <base-section-header dark class="mb-12">Наша команда</base-section-header>
+    <div class="Team">
+      <team-card></team-card>
+      <team-card></team-card>
+      <team-card></team-card>
+    </div>
+  </div>
 </template>
 
 <script>
-import { BaseSection } from '@/components/BaseSection'
+import TeamCard from './TeamCard'
+import { BaseSectionHeader } from '@/components/BaseSection'
+
 export default {
-  components: { BaseSection }
+  components: { BaseSectionHeader, TeamCard }
 }
 </script>
+
+<style>
+.Team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: left;
+}
+</style>
