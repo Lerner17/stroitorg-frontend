@@ -1,51 +1,60 @@
 <template>
-  <div class="BaseToolbar">
-    <div class="burger"><span class="mdi mdi-menu"></span></div>
-    <span class="logo">STROITORG</span>
-    <nav>
-      <ul class="menu">
-        <nuxt-link tag="li" to="/" class="menu__item">Главная</nuxt-link>
-        <nuxt-link tag="li" to="/news" class="menu__item">Новости</nuxt-link>
-        <nuxt-link tag="li" to="/catalog" class="menu__item">Каталог</nuxt-link>
-        <nuxt-link tag="li" to="/about" class="menu__item">
-          О компании
-        </nuxt-link>
-      </ul>
-    </nav>
-    <div class="BaseToolBar__info">
-      <div class="info__contacts">
-        <a href="tel:" class="phone">+7 999 111 22 32</a>
-        <a href="mailto:">example@mail.ru</a>
+  <div>
+    <BaseDrawer :show="isDrawerShow" />
+    <div class="BaseToolbar">
+      <div class="BaseToolbar__wrapper">
+        <button class="burger" @click="isDrawerShow = !isDrawerShow">
+          <span v-if="!isDrawerShow" class="mdi mdi-menu"></span>
+          <span v-else class="mdi mdi-close"></span>
+        </button>
+        <span class="logo">СТРОЙТОРГ</span>
+        <nav>
+          <ul class="menu">
+            <nuxt-link tag="li" to="/" class="menu__item">Главная</nuxt-link>
+            <nuxt-link tag="li" to="/news" class="menu__item"
+              >Новости</nuxt-link
+            >
+            <nuxt-link tag="li" to="/catalog" class="menu__item"
+              >Каталог</nuxt-link
+            >
+            <nuxt-link tag="li" to="/about" class="menu__item">
+              О компании
+            </nuxt-link>
+          </ul>
+        </nav>
+        <div class="BaseToolBar__info">
+          <div class="info__contacts">
+            <a href="tel:" class="phone">+7 999 111 22 32</a>
+            <a href="mailto:" class="email">example@mail.ru</a>
+          </div>
+          <BaseButton
+            class="ml-4 xs-cart"
+            color="primary"
+            style="width: 150px; font-size: 25px"
+          >
+            <span class="mdi mdi-cart"></span>
+            <span>0</span>
+          </BaseButton>
+        </div>
       </div>
-      <BaseButton
-        class="ml-4"
-        color="primary"
-        style="width: 150px; font-size: 25px"
-      >
-        <span class="mdi mdi-cart"></span>
-        <span>0</span>
-      </BaseButton>
     </div>
   </div>
 </template>
 
 <script>
 import BaseButton from './BaseButton.vue'
+import BaseDrawer from '@/components/BaseDrawer'
 export default {
-  components: { BaseButton }
+  components: { BaseButton, BaseDrawer },
+  data() {
+    return {
+      isDrawerShow: false
+    }
+  }
 }
 </script>
 
 <style>
-@media screen and (max-width: 998px) {
-  .BaseToolbar > nav {
-    display: none;
-  }
-  .burger {
-    display: flex;
-  }
-}
-
 .burger {
   display: none;
   font-size: 48px;
@@ -54,20 +63,29 @@ export default {
 }
 
 .BaseToolbar {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
   height: 120px;
   background-color: #313131;
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
   z-index: 20;
 }
+
+.BaseToolbar__wrapper {
+  background-color: #313131;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .logo {
   max-width: 230px;
   height: auto;
@@ -98,7 +116,8 @@ export default {
 .menu__item:hover {
   color: #ffb426;
 }
-.nuxt-link-exact-active {
+
+.menu .nuxt-link-exact-active {
   color: #ffb426;
 }
 
@@ -131,5 +150,37 @@ export default {
 .cart span {
   font-size: 25px;
   color: white;
+}
+
+@media screen and (max-width: 998px) {
+  .BaseToolbar__wrapper > nav {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 547px) {
+  .BaseToolbar {
+    height: 70px;
+  }
+
+  .BaseToolbar__wrapper {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .phone,
+  .email {
+    display: none;
+  }
+
+  .xs-cart {
+    border: none;
+    width: 50px;
+  }
 }
 </style>
