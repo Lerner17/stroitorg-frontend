@@ -126,6 +126,7 @@
   margin: 30px 5px;
   background-color: #444444;
   text-align: center;
+  line-height: 2;
 }
 .BaseFooter__content__text_address {
   margin-top: 30px;
