@@ -26,16 +26,14 @@
   position: relative;
   background-color: #414141;
   max-width: 370px;
+  height: auto;
   min-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding-right: 10px;
   padding-bottom: 10px;
   will-change: transform;
   transition: all 0.3s ease;
   z-index: 1;
   box-sizing: border-box;
-  /* margin: 30px; */
   margin-bottom: 40px;
 }
 

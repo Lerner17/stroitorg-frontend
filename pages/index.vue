@@ -29,18 +29,55 @@
     <base-section dark>
       <Team />
     </base-section>
+    <base-section>
+      <Projects />
+    </base-section>
+    <section class="parallax">
+      <div class="parallax__item">
+        <div class="item__number">25</div>
+        <div class="item__descr">
+          Миллионов украли на Крымском мосту
+        </div>
+      </div>
+      <div class="parallax__item">
+        <div class="item__number">2</div>
+        <div class="item__descr">
+          года работаем в России
+        </div>
+      </div>
+      <div class="parallax__item">
+        <div class="item__number">8</div>
+        <div class="item__descr">
+          байт в бите
+        </div>
+      </div>
+    </section>
+    <base-section>
+      <Partners />
+    </base-section>
   </div>
 </template>
 
 <script>
 import { Hooper, Slide } from 'hooper'
-import Advantages from '@/components/sections/advantages/Advantages'
 import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
-import Team from '@/components/sections/team/Team'
 import BaseSection from '@/components/BaseSection'
+import Advantages from '@/components/sections/advantages/Advantages'
+import Partners from '@/components/sections/partners/Partners'
+import Team from '@/components/sections/team/Team'
+import Projects from '@/components/sections/projects/Projects'
 export default {
-  components: { Hooper, Slide, BaseButton, Advantages, Team, BaseSection },
+  components: {
+    Hooper,
+    Slide,
+    BaseButton,
+    BaseSection,
+    Advantages,
+    Team,
+    Projects,
+    Partners
+  },
   data() {
     return {
       slider: [
@@ -138,6 +175,45 @@ export default {
   opacity: 1;
 }
 
+.parallax {
+  background-image: url('https://lh3.googleusercontent.com/proxy/dGuaBZfL6rNZBcQT50jsrErmPbs09tazUGPBs8B7TySu35unWH5JuCz9yQRweXedq5CAnyJpILMS41knX-QcvD48BMo2qMRsx_Yvls4A0BA');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.item__number {
+  font-size: 110px;
+  position: relative;
+  text-align: center;
+}
+
+.item__number:before {
+  display: inline-block;
+  content: '';
+  width: 95px;
+  border-top: 1px solid #b62e26;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.item__descr {
+  margin-top: 10px;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 190px;
+}
 /* .hooper-slide .is-active .is-current .item_btn,
 .item_h1,
 .item_text { */
