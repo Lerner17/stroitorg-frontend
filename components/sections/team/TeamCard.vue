@@ -34,6 +34,8 @@
   transition: all 0.3s ease;
   z-index: 1;
   box-sizing: border-box;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 40px;
 }
 

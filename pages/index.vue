@@ -33,22 +33,24 @@
       <Projects />
     </base-section>
     <section class="parallax">
-      <div class="parallax__item">
-        <div class="item__number">25</div>
-        <div class="item__descr">
-          Миллионов украли на Крымском мосту
+      <div class="parallax__wrapper">
+        <div class="parallax__item">
+          <div class="item__number">25</div>
+          <div class="item__descr">
+            Миллионов украли на Крымском мосту
+          </div>
         </div>
-      </div>
-      <div class="parallax__item">
-        <div class="item__number">2</div>
-        <div class="item__descr">
-          года работаем в России
+        <div class="parallax__item">
+          <div class="item__number">2</div>
+          <div class="item__descr">
+            года работаем в России
+          </div>
         </div>
-      </div>
-      <div class="parallax__item">
-        <div class="item__number">8</div>
-        <div class="item__descr">
-          байт в бите
+        <div class="parallax__item">
+          <div class="item__number">8</div>
+          <div class="item__descr">
+            байт в бите
+          </div>
         </div>
       </div>
     </section>
@@ -184,9 +186,17 @@ export default {
   width: 100%;
   height: 350px;
   display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.parallax__wrapper {
+  display: flex;
   justify-content: space-around;
   align-items: center;
-  color: white;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
 }
 
 .item__number {
