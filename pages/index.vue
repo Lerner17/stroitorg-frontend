@@ -29,6 +29,9 @@
     <base-section dark>
       <Team />
     </base-section>
+    <base-section>
+      <Projects />
+    </base-section>
   </div>
 </template>
 
@@ -39,8 +42,17 @@ import BaseButton from '@/components/BaseButton'
 import BaseSection from '@/components/BaseSection'
 import Advantages from '@/components/sections/advantages/Advantages'
 import Team from '@/components/sections/team/Team'
+import Projects from '@/components/sections/projects/Projects'
 export default {
-  components: { Hooper, Slide, BaseButton, BaseSection, Advantages, Team },
+  components: {
+    Hooper,
+    Slide,
+    BaseButton,
+    BaseSection,
+    Advantages,
+    Team,
+    Projects
+  },
   data() {
     return {
       slider: [
