@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="BaseToolbar">
     <BaseDrawer :show="isDrawerShow" />
-    <div class="BaseToolbar">
+    <div class="BaseToolbar__content">
       <div class="BaseToolbar__wrapper">
         <button class="burger" @click="isDrawerShow = !isDrawerShow">
           <span v-if="!isDrawerShow" class="mdi mdi-menu"></span>
@@ -61,16 +61,17 @@ export default {
   color: white;
   cursor: pointer;
 }
-
 .BaseToolbar {
+  height: 120px;
+}
+.BaseToolbar__content {
   width: 100%;
   height: 120px;
   background-color: #313131;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  position: sticky;
-  position: -webkit-sticky;
+  position: fixed;
   top: 0;
   z-index: 20;
 }
@@ -162,7 +163,7 @@ export default {
 }
 
 @media screen and (max-width: 547px) {
-  .BaseToolbar {
+  .BaseToolbar__content {
     height: 70px;
   }
 
