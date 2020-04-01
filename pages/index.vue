@@ -32,6 +32,9 @@
     <base-section>
       <Projects />
     </base-section>
+    <base-section>
+      <Partners />
+    </base-section>
   </div>
 </template>
 
@@ -41,6 +44,7 @@ import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
 import BaseSection from '@/components/BaseSection'
 import Advantages from '@/components/sections/advantages/Advantages'
+import Partners from '@/components/sections/partners/Partners'
 import Team from '@/components/sections/team/Team'
 import Projects from '@/components/sections/projects/Projects'
 export default {
@@ -51,7 +55,8 @@ export default {
     BaseSection,
     Advantages,
     Team,
-    Projects
+    Projects,
+    Partners
   },
   data() {
     return {
