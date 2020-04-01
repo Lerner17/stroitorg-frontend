@@ -171,6 +171,10 @@ export default {
     padding-left: 5px;
     padding-right: 5px;
   }
+
+  .BaseToolbar {
+    height: 70px;
+  }
 }
 
 @media screen and (max-width: 625px) {

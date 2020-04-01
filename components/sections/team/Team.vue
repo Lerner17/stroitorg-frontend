@@ -28,17 +28,16 @@ export default {
 <style>
 .Team {
   width: 100%;
-
   max-width: 1920px;
   height: auto;
   box-sizing: border-box;
   padding: 0 75px 0 75px;
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, 350px);
-  grid-auto-rows: 360px;
-  gap: 50px 40px; */
-  /* grid-template-rows: minmax(360px, auto); */
-  /* grid-template-columns: 1fr 1fr 1fr; */
+}
+
+@media screen and (max-width: 550px) {
+  .Team {
+    padding: 0 10px 0 10px;
+  }
 }
 
 .Team__content {

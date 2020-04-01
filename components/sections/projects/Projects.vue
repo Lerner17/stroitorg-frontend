@@ -34,4 +34,14 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 550px) {
+  .Projects {
+    padding: 0 10px 0 10px;
+  }
+
+  .Projects__wrapper {
+    justify-content: center;
+  }
+}
 </style>

@@ -184,7 +184,9 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  height: 350px;
+  min-height: 350px;
+  padding-top: 20;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   color: white;
@@ -193,6 +195,7 @@ export default {
 .parallax__wrapper {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
   max-width: 1920px;
