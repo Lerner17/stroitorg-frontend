@@ -34,13 +34,13 @@
 
 <script>
 import { Hooper, Slide } from 'hooper'
-import Advantages from '@/components/sections/advantages/Advantages'
 import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
-import Team from '@/components/sections/team/Team'
 import BaseSection from '@/components/BaseSection'
+import Advantages from '@/components/sections/advantages/Advantages'
+import Team from '@/components/sections/team/Team'
 export default {
-  components: { Hooper, Slide, BaseButton, Advantages, Team, BaseSection },
+  components: { Hooper, Slide, BaseButton, BaseSection, Advantages, Team },
   data() {
     return {
       slider: [

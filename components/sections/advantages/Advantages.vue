@@ -99,11 +99,22 @@ export default {
 <style>
 .Advantages {
   padding: 0 75px 30px 75px;
-  /* background-color: #fff; */
+  box-sizing: border-box;
   min-height: 450px;
   margin-top: 50px;
   width: 100%;
   max-width: 1920px;
+}
+
+.Advantages .hooper-slide {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .Advantages__title {
@@ -124,6 +135,7 @@ export default {
 
 .Advantages__slider {
   height: auto !important;
+  overflow: hidden;
   width: 100%;
 }
 
