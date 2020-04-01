@@ -60,6 +60,8 @@ export default {
   font-size: 48px;
   color: white;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 .BaseToolbar {
   height: 120px;
