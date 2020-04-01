@@ -125,6 +125,7 @@
   min-height: 30px;
   margin: 30px 5px;
   background-color: #444444;
+  text-align: center;
 }
 .BaseFooter__content__text_address {
   margin-top: 30px;
