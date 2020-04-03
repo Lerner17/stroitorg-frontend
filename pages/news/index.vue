@@ -55,13 +55,18 @@ export default {
 .News {
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 20px 100px;
   width: 100%;
   max-width: 1920px;
   box-sizing: border-box;
 }
+
+/* .News:after {
+  content: '';
+  flex: auto;
+} */
 
 .header_parallax_row {
 }

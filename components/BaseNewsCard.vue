@@ -35,6 +35,7 @@ export default {
   margin: 15px;
   overflow: hidden;
 }
+
 .content__item__date {
   position: absolute;
   border-radius: 40px;
