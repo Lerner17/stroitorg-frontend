@@ -3,8 +3,20 @@
     <div class="Advantages__title mb-8">
       <span class="title__row"></span>
       <h5>Наши приемущества</h5>
+      <div class="Advantages__slider_btn">
+        <button @click.prevent="slidePrev">
+          <span class="mdi mdi-arrow-left"></span>
+        </button>
+        <button @click.prevent="slideNext">
+          <span class="mdi mdi-arrow-right"></span>
+        </button>
+      </div>
     </div>
-    <hooper class="Advantages__slider" :settings="hooperSettings">
+    <hooper
+      ref="carousel"
+      class="Advantages__slider"
+      :settings="hooperSettings"
+    >
       <slide>
         <div class="Advantages__slider_item">
           <div class="Advantages__slider_item__image">
@@ -50,6 +62,14 @@
         </div>
       </slide>
     </hooper>
+    <div class="Advantages__slider_btn_bottom">
+      <button @click.prevent="slidePrev">
+        <span class="mdi mdi-arrow-left"></span>
+      </button>
+      <button @click.prevent="slideNext">
+        <span class="mdi mdi-arrow-right"></span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -62,8 +82,7 @@ export default {
       hooperSettings: {
         infiniteScroll: true,
         centerMode: true,
-        // autoPlay: true,
-        playSpeed: 3500,
+        wheelControl: false,
         breakpoints: {
           2400: {
             // 2400px ~
@@ -91,6 +110,14 @@ export default {
           }
         }
       }
+    }
+  },
+  methods: {
+    slidePrev() {
+      this.$refs.carousel.slidePrev()
+    },
+    slideNext() {
+      this.$refs.carousel.slideNext()
     }
   }
 }
@@ -202,5 +229,50 @@ export default {
 
 .cnt {
   content: '';
+}
+
+.Advantages__slider_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.Advantages__slider_btn > button {
+  background: none;
+  border: none;
+  font-size: 25px;
+  width: 40px;
+  height: 30px;
+}
+
+.Advantages__slider_btn > button:first-child {
+  border-right: 1px solid black;
+  /* padding-right: 20px; */
+}
+
+.Advantages__slider_btn_bottom {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  display: none;
+}
+
+.Advantages__slider_btn_bottom > button {
+  background: none;
+  border: none;
+  font-size: 25px;
+  width: 40px;
+  height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .Advantages__slider_btn {
+    display: none;
+  }
+
+  .Advantages__slider_btn_bottom {
+    display: flex;
+  }
 }
 </style>

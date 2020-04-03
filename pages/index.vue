@@ -110,6 +110,8 @@ export default {
   border-top: 6px solid #ffb426;
   height: 90vh !important;
   max-width: 1920px;
+  /* box-sizing: border-box; */
+  /* margin: 0 3px 0 3px; */
   /* position: relative; */
 }
 
@@ -178,7 +180,7 @@ export default {
 }
 
 .parallax {
-  background-image: url('https://lh3.googleusercontent.com/proxy/dGuaBZfL6rNZBcQT50jsrErmPbs09tazUGPBs8B7TySu35unWH5JuCz9yQRweXedq5CAnyJpILMS41knX-QcvD48BMo2qMRsx_Yvls4A0BA');
+  background-image: url('http://placekitten.com/1500/1500');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -188,6 +190,7 @@ export default {
   padding-top: 20;
   padding-bottom: 20px;
   display: flex;
+  align-items: center;
   justify-content: center;
   color: white;
 }

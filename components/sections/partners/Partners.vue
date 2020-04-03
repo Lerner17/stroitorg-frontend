@@ -2,11 +2,11 @@
   <div class="Partners">
     <base-section-header class="mt-12 mb-12">Партнеры</base-section-header>
     <div class="Partners__slider">
-      <hooper :settings="hooperSettings">
+      <hooper ref="parnters" :settings="hooperSettings">
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-1-200x90.png"
               alt=""
             />
           </div>
@@ -14,7 +14,7 @@
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-2-200x90.png"
               alt=""
             />
           </div>
@@ -22,7 +22,7 @@
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-3-200x90.png"
               alt=""
             />
           </div>
@@ -30,7 +30,7 @@
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-4-200x90.png"
               alt=""
             />
           </div>
@@ -38,7 +38,7 @@
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-5-200x90.png"
               alt=""
             />
           </div>
@@ -46,96 +46,16 @@
         <slide>
           <div class="slider__parnter_item">
             <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
-              alt=""
-            />
-          </div>
-        </slide>
-        <slide>
-          <div class="slider__parnter_item">
-            <img
-              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-23-200x90.png"
+              src="https://livedemo00.template-help.com/wt_prod-23021/images/clients-6-200x90.png"
               alt=""
             />
           </div>
         </slide>
       </hooper>
-      <button class="slider_btn slider_btn--left">
+      <button class="slider_btn slider_btn--left" @click.prevent="slidePrev">
         <span class="mdi mdi-arrow-left"></span>
       </button>
-      <button class="slider_btn slider_btn--right">
+      <button class="slider_btn slider_btn--right" @click.prevent="slideNext">
         <span class="mdi mdi-arrow-right"></span>
       </button>
     </div>
@@ -152,6 +72,8 @@ export default {
     return {
       hooperSettings: {
         centerMode: true,
+        infiniteScroll: true,
+        wheelControl: false,
         breakpoints: {
           2400: {
             // 2400px ~
@@ -175,10 +97,18 @@ export default {
           },
           0: {
             // 0px ~ 600px
-            itemsToShow: 3
+            itemsToShow: 1
           }
         }
       }
+    }
+  },
+  methods: {
+    slidePrev() {
+      this.$refs.parnters.slidePrev()
+    },
+    slideNext() {
+      this.$refs.parnters.slideNext()
     }
   }
 }
@@ -208,7 +138,9 @@ export default {
 }
 
 .slider__parnter_item {
-  width: 200px;
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
 }
 
 .slider_btn {
