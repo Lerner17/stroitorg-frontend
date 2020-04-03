@@ -4,7 +4,7 @@
     <div class="TeamCard__info">
       <img
         class="team-ruth-figure"
-        src="http://placekitten.com/167/167/"
+        src="https://livedemo00.template-help.com/wt_prod-23021/images/team-34-167x162.jpg"
         alt=""
       />
       <div class="TeamCard__contact">

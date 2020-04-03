@@ -37,7 +37,7 @@
         <div class="parallax__item">
           <div class="item__number">25</div>
           <div class="item__descr">
-            Миллионов украли на Крымском мосту
+            Миллионов заказов выполнили
           </div>
         </div>
         <div class="parallax__item">
@@ -49,7 +49,7 @@
         <div class="parallax__item">
           <div class="item__number">8</div>
           <div class="item__descr">
-            байт в бите
+            тысяч поставок ежемесячно
           </div>
         </div>
       </div>
@@ -86,11 +86,12 @@ export default {
         {
           id: 1,
           url:
-            'https://s1.1zoom.ru/big0/981/Sky_Factory_Smoke_Clouds_HDR_530224_1280x720.jpg'
+            'https://livedemo00.template-help.com/wt_prod-23021/images/slide-1.jpg'
         },
         {
           id: 2,
-          url: 'http://placekitten.com/1440/2000'
+          url:
+            'https://livedemo00.template-help.com/wt_prod-23021/images/slide-2.jpg'
         }
       ]
     }
@@ -180,7 +181,7 @@ export default {
 }
 
 .parallax {
-  background-image: url('http://placekitten.com/1500/1500');
+  background-image: url('https://livedemo00.template-help.com/wt_prod-23021/images/parallax-1.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

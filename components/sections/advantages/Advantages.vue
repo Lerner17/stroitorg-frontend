@@ -179,7 +179,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('https://placekitten.com/350/270/');
+  background-image: url('https://livedemo00.template-help.com/wt_prod-23021/images/services-11-420x320.jpg');
   width: 100%;
   height: 270px;
 }

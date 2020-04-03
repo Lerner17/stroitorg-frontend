@@ -1,7 +1,9 @@
 <template>
   <div class="BaseProjectCard">
     <!-- <img src="/images/no_image.png" /> -->
-    <img src="http://placekitten.com/500/500" />
+    <img
+      src="https://livedemo00.template-help.com/wt_prod-23021/images/project-11-570x470.jpg"
+    />
     <div class="BaseProjectCard__title">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fuga
       nulla dolorum!
