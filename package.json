@@ -16,7 +16,8 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "hooper": "^0.3.4",
     "nuxt": "^2.0.0",
-    "nuxtjs-mdi-font": "^1.0.2"
+    "nuxtjs-mdi-font": "^1.0.2",
+    "vue-star-rating": "^1.6.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
