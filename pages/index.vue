@@ -10,11 +10,11 @@
         <slide v-for="slide in slider" :key="slide.id">
           <div
             class="slider__item"
-            :style="`background-image: url('${slide.url}');`"
+            :style="`background-image: url('${slide.image}');`"
           >
             <div class="item__title">
-              <span class="item_h1">Мы лучший завод!</span>
-              <span class="item_text">Все так говорят!</span>
+              <span class="item_h1">{{ slide.title }}</span>
+              <span class="item_text">{{ slide.text }}</span>
               <base-button class="item_btn" size="large" color="danger"
                 >Подробнее</base-button
               >
@@ -82,19 +82,13 @@ export default {
   },
   data() {
     return {
-      slider: [
-        {
-          id: 1,
-          url:
-            'https://livedemo00.template-help.com/wt_prod-23021/images/slide-1.jpg'
-        },
-        {
-          id: 2,
-          url:
-            'https://livedemo00.template-help.com/wt_prod-23021/images/slide-2.jpg'
-        }
-      ]
+      slider: []
     }
+  },
+  mounted() {
+    this.$axios.$get('/main/slider/').then((data) => {
+      this.slider = data
+    })
   }
 }
 </script>
