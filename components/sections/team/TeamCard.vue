@@ -1,31 +1,58 @@
 <template>
   <div class="TeamCard">
-    <h5 class="TeamCard__position">Менеджер</h5>
+    <h5 class="TeamCard__position">{{ position }}</h5>
     <div class="TeamCard__info">
-      <img
-        class="team-ruth-figure"
-        src="https://livedemo00.template-help.com/wt_prod-23021/images/team-34-167x162.jpg"
-        alt=""
-      />
+      <img class="team-ruth-figure" :src="avatar" alt="" />
       <div class="TeamCard__contact">
         <span class="contact__name"
-          >John <br />
-          Smith</span
-        >
+          >{{ firstName }} <br />
+          {{ lastName }}
+        </span>
       </div>
     </div>
     <div class="TeamCard__footer">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quasi
-      unde qui?
+      {{ bio }}
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
+      type: String,
+      required: true
+    },
+    position: {
+      type: String,
+      required: true
+    },
+    bio: {
+      type: String,
+      required: true
+    },
+    avatar: {
+      type: String,
+      default: 'no-image.png'
+    },
+    email: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>
 
 <style>
 .TeamCard {
   position: relative;
   background-color: #414141;
   max-width: 370px;
+  min-width: 350px;
   height: auto;
   min-height: 100%;
   padding-right: 10px;

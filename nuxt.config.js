@@ -33,7 +33,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/axios.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -47,8 +47,13 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
     'nuxtjs-mdi-font'
   ],
+
+  axios: {
+    proxy: process.env.NODE_ENV === 'development'
+  },
   /*
    ** Build configuration
    */

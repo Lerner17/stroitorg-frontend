@@ -1,5 +1,6 @@
 <template>
   <div class="products__item">
+    <div class="products__item__circle"></div>
     <span v-if="is_new" class="label new">NEW</span>
     <span v-if="is_sale" class="label sale">SALE</span>
     <img v-if="image" :src="image" class="products__item--image" />
