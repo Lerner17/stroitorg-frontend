@@ -27,14 +27,16 @@
             <a href="tel:" class="phone">+7 999 111 22 32</a>
             <a href="mailto:" class="email">example@mail.ru</a>
           </div>
-          <BaseButton
-            class="ml-4 xs-cart"
-            color="primary"
-            style="width: 150px; font-size: 25px"
-          >
-            <span class="mdi mdi-cart"></span>
-            <span>0</span>
-          </BaseButton>
+          <nuxt-link to="/cart">
+            <BaseButton
+              class="ml-4 xs-cart"
+              color="primary"
+              style="width: 150px; font-size: 25px"
+            >
+              <span class="mdi mdi-cart"></span>
+              <span>{{ cartCount }}</span>
+            </BaseButton>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -49,6 +51,11 @@ export default {
   data() {
     return {
       isDrawerShow: false
+    }
+  },
+  computed: {
+    cartCount() {
+      return this.$store.getters['cart/cartItems'].length
     }
   }
 }
