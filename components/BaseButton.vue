@@ -1,5 +1,5 @@
 <template>
-  <div class="BaseButton" :class="classList" v-on="listeners">
+  <div class="BaseButton" :class="classList">
     <span class="BaseButton__content"><slot></slot></span>
     <span class="BaseButton__content--dubbed"><slot></slot></span>
   </div>
@@ -36,11 +36,6 @@ export default {
         dark: this.dark
       }
       return getClassListFromProps('BaseButton', obj)
-    },
-    listeners() {
-      const { click: fn, ...listeners } = this.$listeners
-      listeners.click = () => this.click(fn)
-      return listeners
     }
   }
 }
