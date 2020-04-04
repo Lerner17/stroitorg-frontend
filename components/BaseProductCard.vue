@@ -4,7 +4,6 @@
     <span v-if="isSale" class="label sale">SALE</span>
     <img :src="image" class="products__item--image" />
     <!-- <img v-else src="/images/no_image.png" class="products__item--image" /> -->
-    <StarRating :star-size="19" :padding="5" :show-rating="false"></StarRating>
     <div class="products__item_title">{{ title }}</div>
     <div class="products__item--price-wrap">
       <div v-if="isSale" class="products__item--price-old">
@@ -26,11 +25,10 @@
 </template>
 
 <script>
-import StarRating from 'vue-star-rating'
 import BaseButton from '@/components/BaseButton'
 export default {
   name: 'BaseProductCard',
-  components: { BaseButton, StarRating },
+  components: { BaseButton },
   props: {
     id: {
       type: Number,

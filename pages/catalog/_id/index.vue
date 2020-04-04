@@ -5,9 +5,10 @@
       <div class="header_parallax_row"></div>
     </div>
     <div class="links_tree">
-      <a href="">Главная</a><span class="mdi mdi-arrow-right"></span
-      ><a>Каталог</a><span class="mdi mdi-arrow-right"></span
-      ><span>Имя товара</span>
+      <nuxt-link to="/">Главная</nuxt-link
+      ><span class="mdi mdi-arrow-right"></span
+      ><nuxt-link to="/catalog">Каталог</nuxt-link
+      ><span class="mdi mdi-arrow-right"></span><span>Имя товара</span>
     </div>
     <div class="good">
       <div class="good_view">
@@ -25,11 +26,6 @@
         <h4>Drill Press Vise</h4>
         <div class="good_info_ctn">
           <span class="good_price">₽ 2 500</span>
-          <star-rating
-            :star-size="24"
-            :padding="5"
-            :show-rating="false"
-          ></star-rating>
         </div>
         <p>
           Lorem ipsum dolor sit amet, ei impetus epicurei his, ne falli erant
@@ -67,10 +63,9 @@
 
 <script>
 import { Hooper, Slide } from 'hooper'
-import StarRating from 'vue-star-rating'
 import BaseButton from '@/components/BaseButton'
 export default {
-  components: { Hooper, StarRating, Slide, BaseButton },
+  components: { Hooper, Slide, BaseButton },
   data() {
     return {
       count: 1
