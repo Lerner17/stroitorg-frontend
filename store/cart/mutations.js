@@ -1,18 +1,23 @@
 export default {
-  UPDATE_CART(state, { item, quantity, isAdd }) {
-    const record = state.cart.find((element) => element.id === item.id)
-    if (record) {
-      if (isAdd) {
-        record.quantity += quantity
-      } else {
-        record.quantity = quantity
-      }
-    } else {
-      state.cart.push({
-        ...item,
-        quantity
-      })
+  UPDATE_CART(state, good) {
+    const indexCartInState = state.cart.findIndex((item) => good.id === item.id)
+    // console.log(good, indexCartInState)
+    if (indexCartInState === -1) {
+      state.cart.push({ ...good, quantity: 1 })
+      return
     }
+    ++state.cart[indexCartInState].quantity
+  },
+  UPDATE_CART_WITH_PAYLOAD(state, payload) {
+    console.log(payload)
+    return state
+    // const indexCartInState = state.cart.findIndex((item) => good.id === item.id)
+    // // console.log(good, indexCartInState)
+    // if (indexCartInState === -1) {
+    //   state.cart.push({ ...good, quantity: 1 })
+    //   return
+    // }
+    // ++state.cart[indexCartInState].quantity
   },
   REMOVE_CART_ITEM(state, { item }) {
     const record = state.cart.find((element) => element.id === item.id)

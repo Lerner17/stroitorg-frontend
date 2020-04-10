@@ -17,6 +17,7 @@
     "hooper": "^0.3.4",
     "nuxt": "^2.0.0",
     "nuxtjs-mdi-font": "^1.0.2",
+    "vue-currency-filter": "^4.0.3",
     "vue-star-rating": "^1.6.1"
   },
   "devDependencies": {

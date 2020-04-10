@@ -1,5 +1,9 @@
 <template>
-  <div class="BaseButton" :class="classList">
+  <div v-if="reactive" class="BaseButton" :class="classList" v-on="$listeners">
+    <span class="BaseButton__content"><slot></slot></span>
+    <span class="BaseButton__content--dubbed"><slot name="dubbed"></slot></span>
+  </div>
+  <div v-else class="BaseButton" :class="classList" v-on="$listeners">
     <span class="BaseButton__content"><slot></slot></span>
     <span class="BaseButton__content--dubbed"><slot></slot></span>
   </div>
@@ -9,6 +13,10 @@
 import getClassListFromProps from '~/core/getClassListFromProps'
 export default {
   props: {
+    reactive: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: 'primary',

@@ -4,15 +4,19 @@
     <span v-if="isSale" class="label sale">SALE</span>
     <img :src="image" class="products__item--image" />
     <!-- <img v-else src="/images/no_image.png" class="products__item--image" /> -->
-    <div class="products__item_title">{{ title }}</div>
+    <div class="products__item_title">{{ name }}</div>
     <div class="products__item--price-wrap">
       <div v-if="isSale" class="products__item--price-old">
-        {{ old_price }}р.
+        {{ newPrice }}р.
       </div>
       <div class="products__item--price">{{ price }}р.</div>
     </div>
     <div style="width: 100%;">
-      <BaseButton style="font-size: 12px;" class="ml-5 mr-5 mb-2" color="danger"
+      <BaseButton
+        style="font-size: 12px;"
+        class="ml-5 mr-5 mb-2"
+        color="danger"
+        @click="addToCart"
         >Добавить в корзину</BaseButton
       >
       <nuxt-link :to="`/catalog/${id}`">
@@ -25,6 +29,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import BaseButton from '@/components/BaseButton'
 export default {
   name: 'BaseProductCard',
@@ -34,7 +39,7 @@ export default {
       type: Number,
       required: true
     },
-    title: {
+    name: {
       type: String,
       required: true
     },
@@ -42,7 +47,7 @@ export default {
       type: String,
       default: '/images/no_image.png'
     },
-    oldPrice: {
+    newPrice: {
       type: Number,
       default: null
     },
@@ -57,6 +62,21 @@ export default {
     isSale: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    ...mapActions({
+      updateCart: 'cart/updateCart'
+    }),
+    addToCart() {
+      const item = {
+        id: this.id,
+        title: this.title,
+        price: this.price,
+        new_price: this.newPrice,
+        image: this.image
+      }
+      this.updateCart(item)
     }
   }
 }

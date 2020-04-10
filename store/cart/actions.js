@@ -1,6 +1,9 @@
 export default {
-  updateCart({ commit }, { item, quantity, isAdd }) {
-    commit('UPDATE_CART', { item, quantity, isAdd })
+  updateCart({ commit }, item) {
+    commit('UPDATE_CART', item)
+  },
+  updateCartWithPayload({ commit }, payload) {
+    commit('UPDATE_CART_WITH_PAYLOAD', payload)
   },
   removeItemInCart({ commit }, { item }) {
     commit('REMOVE_CART_ITEM', { item })

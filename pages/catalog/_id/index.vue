@@ -8,30 +8,27 @@
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
       ><nuxt-link to="/catalog">Каталог</nuxt-link
-      ><span class="mdi mdi-arrow-right"></span><span>Имя товара</span>
+      ><span class="mdi mdi-arrow-right"></span><span>{{ product.name }}</span>
     </div>
     <div class="good">
       <div class="good_view">
         <hooper style="height: auto;">
-          <slide style="width: 100%;">
-            <img
-              class="good__image"
-              src="http://placekitten.com/500/500/"
-              alt=""
-            />
+          <slide
+            v-for="image in product.images"
+            :key="image.id"
+            style="width: 100%;"
+          >
+            <img class="good__image" :src="image.image" :alt="product.title" />
           </slide>
         </hooper>
       </div>
       <div class="good_info">
-        <h4>Drill Press Vise</h4>
+        <h4>{{ product.name }}</h4>
         <div class="good_info_ctn">
-          <span class="good_price">₽ 2 500</span>
+          <span class="good_price">{{ product.price | currency }}</span>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, ei impetus epicurei his, ne falli erant
-          consequuntur est. Mei simul aperiam eu, an rebum regione ponderum mel.
-          Facer placerat ut duo, id duis solum maiorum vis, vim autemsemper
-          docendi cu.
+          {{ product.description }}
         </p>
         <hr />
         <div class="characteristics">
@@ -51,7 +48,11 @@
                 <button @click="removeCount()">-</button>
               </div>
             </div>
-            <base-button class="ml-5" size="large" color="danger"
+            <base-button
+              class="ml-5"
+              size="large"
+              color="danger"
+              @click="addToCart()"
               >Добавить в корзину</base-button
             >
           </div>
@@ -68,8 +69,16 @@ export default {
   components: { Hooper, Slide, BaseButton },
   data() {
     return {
-      count: 1
+      count: 1,
+      product: {}
     }
+  },
+  mounted() {
+    this.$axios
+      .$get(`catalog/products/${this.$route.params.id}`)
+      .then((data) => {
+        this.product = data
+      })
   },
   methods: {
     addCount() {
@@ -79,6 +88,9 @@ export default {
       if (this.count > 1) {
         --this.count
       }
+    },
+    addToCart() {
+      this.$store.dispatch({ type: 'updateCartWithPayload', count: 10 })
     }
   }
 }

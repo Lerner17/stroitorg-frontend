@@ -32,9 +32,14 @@
               class="ml-4 xs-cart"
               color="primary"
               style="width: 150px; font-size: 25px"
+              reactive
             >
               <span class="mdi mdi-cart"></span>
               <span>{{ cartCount }}</span>
+              <template v-slot:dubbed>
+                <span class="mdi mdi-cart"></span>
+                <span>{{ cartCount }}</span>
+              </template>
             </BaseButton>
           </nuxt-link>
         </div>
@@ -55,7 +60,10 @@ export default {
   },
   computed: {
     cartCount() {
-      return this.$store.getters['cart/cartItems'].length
+      return this.$store.getters['cart/cartItems'].reduce((total, item) => {
+        total += item.quantity
+        return total
+      }, 0)
     }
   }
 }
