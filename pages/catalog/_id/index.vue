@@ -38,9 +38,11 @@
               product.category.name
             }}</span>
           </div>
-          <div v-for="p of parameters" :key="p.id">
-            {{ p.name }}:
-            <span class="characteristics__span">{{ p.value }}</span>
+          <div v-if="product.parameters">
+            <div v-for="p of product.parameters" :key="p.id">
+              {{ p.name }}:
+              <span class="characteristics__span">{{ p.value }}</span>
+            </div>
           </div>
           <div class="good_actions">
             <div class="actions_counter">
