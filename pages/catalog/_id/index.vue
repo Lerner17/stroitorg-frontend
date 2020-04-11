@@ -11,17 +11,11 @@
       ><span class="mdi mdi-arrow-right"></span><span>{{ product.name }}</span>
     </div>
     <div class="good">
-      <div class="good_view">
-        <hooper style="height: auto;">
-          <slide
-            v-for="image in product.images"
-            :key="image.id"
-            style="width: 100%;"
-          >
-            <img class="good__image" :src="image.image" :alt="product.title" />
-          </slide>
-        </hooper>
-      </div>
+      <hooper class="good_view" :settings="hooperSettings">
+        <slide v-for="slide in slider" :key="slide.id">
+          <img class="good__image" :src="slide.image" />
+        </slide>
+      </hooper>
       <div class="good_info">
         <h4>{{ product.name }}</h4>
         <div class="good_info_ctn">
@@ -74,7 +68,14 @@ export default {
   data() {
     return {
       count: 1,
-      product: {}
+      product: {},
+      slider: [],
+      hooperSettings: {
+        autoPlay: true,
+        itemsToShow: 1,
+        wheelControl: false,
+        playSpeed: 5000
+      }
     }
   },
   mounted() {
@@ -82,6 +83,7 @@ export default {
       .$get(`catalog/products/${this.$route.params.id}`)
       .then((data) => {
         this.product = data
+        this.slider = data.images
       })
   },
   methods: {
@@ -112,7 +114,7 @@ export default {
   color: #777777;
   text-align: center;
   padding-top: 20px;
-  padding-buttom: 20px;
+  padding-bottom: 20px;
 }
 
 .links_tree > a {
@@ -126,6 +128,21 @@ export default {
   color: black;
 }
 
+.good_view {
+  max-width: 523px;
+  min-width: 350px;
+  height: auto !important;
+  max-height: 523px;
+  width: 100%;
+}
+
+.good__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+}
+
 .good {
   padding-top: 90px;
   display: flex;
@@ -134,16 +151,27 @@ export default {
   flex-wrap: wrap;
 }
 
-.good__image {
-  max-width: 500px;
+/* .good__image {
+  max-width: 523px;
+  min-width: 350px;
   width: 100%;
-}
+} */
 
-.good__view {
-  max-width: 532px;
+/* .good__view {
+  max-width: 532px !important;
   width: 100%;
   height: auto;
 }
+
+.good__view .hooper-track {
+  min-width: 350px;
+  max-width: 523px;
+  width: 100%;
+}
+
+.good__view .hooper-slide {
+  width: 100% !important;
+} */
 
 .good_price {
   font-size: 24px;
