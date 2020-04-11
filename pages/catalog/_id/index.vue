@@ -33,12 +33,14 @@
         <hr />
         <div class="characteristics">
           <div>
-            Категория: <span class="characteristics__span">Пылесосы</span>
+            Категория:
+            <span class="characteristics__span">{{
+              product.category.name
+            }}</span>
           </div>
-          <div>Вес: <span class="characteristics__span">32 кг</span></div>
-          <div>
-            Габариты:
-            <span class="characteristics__span">20 х 21 х 333 метра</span>
+          <div v-for="p of parameters" :key="p.id">
+            {{ p.name }}:
+            <span class="characteristics__span">{{ p.value }}</span>
           </div>
           <div class="good_actions">
             <div class="actions_counter">
