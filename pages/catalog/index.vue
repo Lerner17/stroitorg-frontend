@@ -7,7 +7,7 @@
       :name="product.name"
       :new-price="product.old_price"
       :price="product.price"
-      :image="product.image"
+      :image="product.preview"
       :is-new="product.is_new"
       :is-sale="product.is_sale"
     ></base-product-card>

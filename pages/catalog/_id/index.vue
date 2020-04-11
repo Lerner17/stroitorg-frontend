@@ -1,7 +1,7 @@
 <template>
   <div class="GoodDetail">
     <div class="parallax parallax--mask">
-      <h3 style="postition: relative; z-index: 1;">Product name</h3>
+      <h3 style="postition: relative; z-index: 1;">{{ product.name }}</h3>
       <div class="header_parallax_row"></div>
     </div>
     <div class="links_tree">
@@ -34,12 +34,12 @@
         <div class="characteristics">
           <div>
             Категория:
-            <span class="characteristics__span">{{
+            <span v-if="product.category" class="characteristics__span">{{
               product.category.name
             }}</span>
           </div>
           <div v-if="product.parameters">
-            <div v-for="p of product.parameters" :key="p.id">
+            <div v-for="p in product.parameters" :key="p.id">
               {{ p.name }}:
               <span class="characteristics__span">{{ p.value }}</span>
             </div>
