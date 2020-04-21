@@ -9,7 +9,7 @@
       <div v-if="isSale" class="products__item--price-old">
         {{ newPrice }}р.
       </div>
-      <div class="products__item--price">{{ price }}р.</div>
+      <div class="products__item--price">{{ price | currency }}</div>
     </div>
     <div style="width: 100%;">
       <BaseButton

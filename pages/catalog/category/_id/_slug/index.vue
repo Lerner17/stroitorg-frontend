@@ -3,7 +3,8 @@
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
-      ><span class="links_tree--bold">Каталог</span>
+      ><nuxt-link to="/catalog">Каталог</nuxt-link
+      ><span class="mdi mdi-arrow-right"></span><span>{{ products.name }}</span>
     </div>
     <div class="Catalog__container">
       <div class="Catalog__container_sidebar">
@@ -19,7 +20,6 @@
         </ul>
         <div class="serach-form">
           <input
-            v-model="search"
             type="text"
             class="serach-form__input"
             placeholder="Поиск..."
@@ -29,7 +29,7 @@
       </div>
       <div class="products">
         <base-product-card
-          v-for="product in products"
+          v-for="product in products.products"
           :id="product.id"
           :key="product.id"
           :name="product.name"
@@ -41,26 +41,25 @@
         />
       </div>
     </div>
-    <base-paggination :list-data="[1, 2, 3, 4]"></base-paggination>
   </div>
 </template>
 
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
-import BasePaggination from '@/components/BasePaggination'
 export default {
-  components: { BaseProductCard, BasePaggination },
+  components: { BaseProductCard },
   data() {
     return {
       products: [],
-      categories: [],
-      search: ''
+      categories: []
     }
   },
   mounted() {
-    this.$axios.$get('/catalog/products/').then((data) => {
-      this.products = data.results
-    })
+    this.$axios
+      .$get(`/catalog/categories/${this.$route.params.id}/`)
+      .then((data) => {
+        this.products = data
+      })
     this.$axios.$get('/catalog/categories/').then((data) => {
       this.categories = data
     })
@@ -101,7 +100,6 @@ export default {
 
 .Catalog__container_sidebar {
   width: 300px;
-  box-sizing: border-box;
 }
 
 .products {

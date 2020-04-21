@@ -3,6 +3,7 @@
   font-family: 'Roboto';
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -22,6 +23,59 @@ body,
 body {
   max-width: 1440px;
 } */
+ul {
+  list-style: none;
+}
+
+.list-marked-2 {
+	text-align: left;
+	font-size: 14px;
+	line-height: 1.71;
+	letter-spacing: .05em;
+	color: #777777;
+}
+
+.list-marked-2 > li {
+	text-indent: -21px;
+  padding-left: 21px;
+  cursor: pointer;
+}
+
+.list-marked-2 > li::before {
+	position: relative;
+	display: inline-block;
+	left: 0;
+	top: 0;
+	content: '';
+	height: 8px;
+	width: 8px;
+	margin-right: 13px;
+	background: #e1e1e1;
+	transition: all .3s ease-in-out;
+}
+
+.list-marked-2 > li:hover {
+	color: #b62e26;
+}
+
+.list-marked-2 > li:hover::before {
+	background: #b62e26;
+}
+
+.list-marked-2 a {
+	color: inherit;
+}
+
+.list-marked-2 > li + li {
+	margin-top: 14px;
+}
+
+* + .list-marked-2 {
+	margin-top: 30px;
+}
+
+/* .list-marked-2 > li .nuxt-link-exact-active .nuxt-link-active{} */
+
 
 h1 {
   font-size: 110px;
