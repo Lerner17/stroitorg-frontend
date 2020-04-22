@@ -10,16 +10,16 @@
             high-quality steel products and services.
           </p>
           <ul class="icon-list">
-            <li class="icon">
+            <li class="footer-icon">
               <span class="mdi mdi-facebook"></span>
             </li>
-            <li class="icon">
+            <li class="footer-icon">
               <span class="mdi mdi-instagram"></span>
             </li>
-            <li class="icon">
+            <li class="footer-icon">
               <span class="mdi mdi-twitter"></span>
             </li>
-            <li class="icon">
+            <li class="footer-icon">
               <span class="mdi mdi-vk"></span>
             </li>
           </ul>
@@ -144,7 +144,7 @@
   display: flex;
   flex-direction: row;
 }
-.icon {
+.footer-icon {
   min-width: 30px;
   min-height: 30px;
   margin: 30px 5px;

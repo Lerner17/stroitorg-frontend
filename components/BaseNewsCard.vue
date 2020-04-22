@@ -3,7 +3,9 @@
     <span class="content__item__date">{{ date }}</span>
     <img v-if="image" :src="image" />
     <img v-else src="/images/no_image.png" />
-    <div class="content__item__title">{{ title }}</div>
+    <n-link :to="`${slug}`" append class="content__item__title">{{
+      title
+    }}</n-link>
   </div>
 </template>
 
@@ -11,6 +13,10 @@
 export default {
   name: 'BaseNewsCard',
   props: {
+    slug: {
+      type: Number || String,
+      default: null
+    },
     // eslint-disable-next-line vue/require-default-prop
     title: String,
     // eslint-disable-next-line vue/require-default-prop
@@ -64,7 +70,7 @@ export default {
   letter-spacing: 0.075em;
   font-size: 19px;
 }
-/* 
+/*
 .content__item:nth-child(2n) {
   overflow: hidden;
 } */

@@ -8,6 +8,7 @@
       <base-news-card
         v-for="n in news"
         :key="n.id"
+        :slug="n.id"
         :title="n.title"
         :date="n.date"
         :image="n.image"
