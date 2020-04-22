@@ -41,7 +41,11 @@
         />
       </div>
     </div>
-    <base-paggination :list-data="[1, 2, 3, 4]"></base-paggination>
+    <base-paggination
+      :size="10"
+      :current-page="$route.params.page ? $route.params.page : 1"
+      @change="changePage"
+    />
   </div>
 </template>
 
@@ -64,6 +68,16 @@ export default {
     this.$axios.$get('/catalog/categories/').then((data) => {
       this.categories = data
     })
+  },
+  methods: {
+    changePage(page) {
+      this.$axios
+        .$get(`/catalog/products`, { params: { page } })
+        .then((data) => {
+          this.products = data.results
+        })
+        .catch()
+    }
   }
 }
 </script>

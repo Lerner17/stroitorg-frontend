@@ -2,15 +2,15 @@
   <aside class="sidebar">
     <div class="sidebar__track">
       <div class="sidebar__item">
-        <form class="form-search" method="GET">
-          <div class="form-wrap">
-            <label class="form-label" for="search-form-2">Поиск...</label>
-            <input id="search-form-2" class="form-input" type="text" />
-            <BaseButton :class="'button_search'">
-              <span class="icon mdi mdi-search-web"></span>
-            </BaseButton>
-          </div>
-        </form>
+        <div class="serach-form">
+          <input
+            type="text"
+            placeholder="Поиск..."
+            value=""
+            class="serach-form__input"
+          />
+          <button class="search-form__btn mdi mdi-magnify"></button>
+        </div>
       </div>
       <div class="sidebar__item">
         <h6 class="sidebar__title">Теги</h6>

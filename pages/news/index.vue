@@ -14,13 +14,19 @@
         :image="n.image"
       ></base-news-card>
     </div>
+    <base-paggination
+      :size="6"
+      :current-page="$route.params.page ? $route.params.page : 1"
+      @change="changePage"
+    />
   </div>
 </template>
 
 <script>
 import BaseNewsCard from '@/components/BaseNewsCard'
+import BasePaggination from '@/components/BasePaggination'
 export default {
-  components: { BaseNewsCard },
+  components: { BaseNewsCard, BasePaggination },
   data() {
     return {
       news: [
@@ -47,6 +53,16 @@ export default {
           date: 'Февраль, 23, 2020'
         }
       ]
+    }
+  },
+  methods: {
+    changePage(page) {
+      this.$axios
+        .$get(`/catalog/news`, { params: { page } })
+        .then((data) => {
+          this.products = data.results
+        })
+        .catch()
     }
   }
 }
