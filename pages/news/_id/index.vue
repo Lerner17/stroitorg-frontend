@@ -1,75 +1,76 @@
 <template>
-  <div class="container news__detail">
-    <h1 class="news__title">News Title</h1>
-    <!-- <img
-      class="news_image"
-      width="700"
-      height="500"
-      src="/images/no_image.png"
-    />-->
-    <div class="news__meta">
-      <time class="news__date">29.03.2003</time>
-      <ul class="news__meta-list meta-list">
-        <li class="meta__author">
-          <span class="icon mdi mdi-account-outline"></span>
-          <span>by <a href="#">Harry Burns</a></span>
-        </li>
-        <li class="meta__views">
-          <span class="icon mdi mdi-eye"></span><span>3678</span>
-        </li>
-        <li class="meta__comment-count">
-          <span class="icon mdi mdi-comment-outline"></span>
-          <a href="#">3</a>
-        </li>
-      </ul>
-    </div>
-    <div class="news__content">
-      <p>
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-      </p>
-      <img width="1200" height="500" src="/images/no_image.png" alt="" />
-      <p>
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-      </p>
-      <img width="500" height="300" src="/images/no_image.png" alt="" />
-      <p>
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-        Куча текста Куча текста Куча текста Куча текста Куча текста Куча текста
-      </p>
-    </div>
+  <div class="news__wrapper">
+    <div class="news_detail">
+      <h1 class="news__title">News Title</h1>
+      <div class="news__meta">
+        <time class="news__date">29.03.2003</time>
+        <ul class="news__meta-list meta-list">
+          <li class="meta__author">
+            <span class="icon mdi mdi-account-outline"></span>
+            <span>by <a href="#">Harry Burns</a></span>
+          </li>
+          <li class="meta__views">
+            <span class="icon mdi mdi-eye"></span><span>3678</span>
+          </li>
+          <li class="meta__comment-count">
+            <span class="icon mdi mdi-comment-outline"></span>
+            <a href="#">3</a>
+          </li>
+        </ul>
+      </div>
+      <div class="news__content">
+        <p>
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста
+        </p>
+        <img width="100%" height="500" src="/images/no_image.png" alt="" />
+        <p>
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста
+        </p>
+        <img width="50%" height="300" src="/images/no_image.png" alt="" />
+        <p>
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста Куча текста Куча
+          текста Куча текста Куча текста Куча текста Куча текста Куча текста
+          Куча текста Куча текста Куча текста Куча текста
+        </p>
+      </div>
 
-    <news-footer>
-      Поделиться
-    </news-footer>
+      <news-footer>
+        Поделиться
+      </news-footer>
+    </div>
+    <NewsSidebar :tags="tags" />
   </div>
 </template>
 
 <script>
-import { NewsFooter } from '@/components/sections/news'
+import { NewsFooter, NewsSidebar } from '@/components/sections/news'
 
 export default {
   components: {
-    NewsFooter
+    NewsFooter,
+    NewsSidebar
   },
   async asyncData({ $axios, params }) {
     const id = params.id
@@ -81,36 +82,68 @@ export default {
   data() {
     return {
       id: 1,
-      data: {}
+      data: {},
+      tags: [
+        {
+          name: 'Тег 1',
+          link: '/tag'
+        },
+        {
+          name: 'тег (2)',
+          link: '/tag'
+        },
+        {
+          name: 'еще один Тег (3)',
+          link: '/tag'
+        },
+        {
+          name: 'Тег 4',
+          link: '/tag'
+        },
+        {
+          name: 'последний Тег (5)',
+          link: '/tag'
+        }
+      ]
     }
   }
 }
 </script>
 
 <style>
-.news__detail {
+.news__wrapper {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 1rem 80px;
+}
+@media only screen and (min-width: 768px) {
+  .news__wrapper {
+    grid-template-columns: 2fr 1fr;
+    max-width: 1200px;
+    padding-top: 90px;
+  }
+}
+.news_detail {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 100%;
   width: 100%;
-  text-align: center;
-  padding: 90px 1rem 80px;
+  padding: 0 1rem;
   margin-left: auto;
   margin-right: auto;
 }
-@media only screen and (min-width: 1300px) {
-  .news__detail {
-    max-width: 1200px;
-  }
-}
+
 .news__title {
   font-size: 1.5rem;
+  text-align: center;
 }
-.news__image {
-  margin-left: auto;
-  margin-right: auto;
+@media only screen and (min-width: 1300px) {
+  .news__title {
+    text-align: left;
+  }
 }
 .news__meta {
   display: flex;
@@ -128,10 +161,6 @@ export default {
   }
 }
 .news__meta-list {
-  /*display: flex;*/
-  /*flex-wrap: wrap;*/
-  /*margin-bottom: 20px;*/
-  /*margin-left: 20px;*/
   transform: translate3d(0, -14px, 0);
   margin: 0 -17px -14px;
   font-size: 15px;
@@ -152,14 +181,14 @@ export default {
   z-index: 1;
 
   display: inline-block;
-  margin-top: 0;
+  /*margin-top: 20px;*/
   margin-bottom: 20px;
   margin-left: 20px;
 }
 
 .meta-list {
   /*display: inline-block;*/
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
 }
@@ -167,7 +196,7 @@ export default {
 .meta__comment-count,
 .meta__views {
   display: inline-block;
-  margin-top: 14px;
+  /*margin-top: 14px;*/
   padding-left: 17px;
   padding-right: 17px;
 }
@@ -176,23 +205,29 @@ export default {
   border-left: 1px solid #cccccc;
 }
 
-.news__detail p {
+.news__content {
   margin-top: 30px;
 }
-.news__detail * + p {
+
+.news__content p {
+  margin-top: 30px;
+}
+.news__content * + p {
   margin: 0;
 }
-.news__detail img {
+.news__content img {
   display: inline-block;
   max-width: 100%;
   height: auto;
   vertical-align: middle;
   border-style: none;
+  object-fit: contain;
+  object-position: center;
 }
-.news__detail * + img {
+.news__content * + img {
   margin-top: 30px;
 }
-.news__detail img + p {
+.news__content img + p {
   margin-top: 35px;
 }
 </style>
