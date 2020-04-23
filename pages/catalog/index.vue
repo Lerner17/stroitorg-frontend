@@ -50,21 +50,21 @@ import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
 export default {
   components: { BaseProductCard, BasePaggination },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get('/catalog/products/')
+    return { products: data.results }
+    // await $axios.$get('/catalog/categories/').then((data) => {
+    //   // data.categories = data
+    // })
+  },
   data() {
     return {
-      products: [],
+      // products: [],
       categories: [],
       search: ''
     }
   },
-  mounted() {
-    this.$axios.$get('/catalog/products/').then((data) => {
-      this.products = data.results
-    })
-    this.$axios.$get('/catalog/categories/').then((data) => {
-      this.categories = data
-    })
-  }
+  mounted() {}
 }
 </script>
 

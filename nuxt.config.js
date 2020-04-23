@@ -34,7 +34,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios.js', '~/plugins/vue-currency-filter'],
+  plugins: [
+    '~/plugins/axios.js',
+    '~/plugins/vue-currency-filter',
+    '~/plugins/moment'
+  ],
   /*
    ** Nuxt.js dev-modules
    */

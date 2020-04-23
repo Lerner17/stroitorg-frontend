@@ -34,6 +34,10 @@ export default {
     dark: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -41,7 +45,8 @@ export default {
       const obj = {
         color: this.color,
         size: this.size,
-        dark: this.dark
+        dark: this.dark,
+        disabled: this.disabled
       }
       return getClassListFromProps('BaseButton', obj)
     }
@@ -155,5 +160,11 @@ export default {
 .BaseButton--size--small {
   width: 150px;
   height: 50px;
+}
+
+.BaseButton--disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default;
 }
 </style>

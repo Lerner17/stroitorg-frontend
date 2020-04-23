@@ -1,6 +1,6 @@
 <template>
   <div class="content__item">
-    <span class="content__item__date">{{ date }}</span>
+    <span class="content__item__date">{{ date | formatDate }}</span>
     <img v-if="image" :src="image" />
     <img v-else src="/images/no_image.png" />
     <n-link :to="`${slug}`" append class="content__item__title">{{

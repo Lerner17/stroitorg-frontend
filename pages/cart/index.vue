@@ -8,13 +8,13 @@
     </div>
     <div class="Cart__container">
       <div class="table_responsive">
-        <table class="table-custom table-cart">
+        <table v-if="cart.length > 0" class="table-custom table-cart">
           <thead>
             <tr>
-              <th>Product name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
+              <th>Имя продукта</th>
+              <th>Цена</th>
+              <th>количество</th>
+              <th>Итого</th>
             </tr>
           </thead>
           <tbody>
@@ -31,10 +31,13 @@
             </tr>
           </tbody>
         </table>
+        <div v-else style="text-align: center;">Корзина пустая</div>
         <div class="Car__actions">
           <div class="total">Итого</div>
           <span class="total_sum ml-8">{{ total }} ₽</span>
-          <base-button class="ml-5" color="danger">Оформить заказ</base-button>
+          <base-button :disabled="!cart.length > 0" class="ml-5" color="danger"
+            >Оформить заказ</base-button
+          >
         </div>
       </div>
     </div>

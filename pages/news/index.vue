@@ -10,7 +10,7 @@
         :key="n.id"
         :slug="n.id"
         :title="n.title"
-        :date="n.date"
+        :date="n.created_at"
         :image="n.image"
       ></base-news-card>
     </div>
@@ -21,32 +21,14 @@
 import BaseNewsCard from '@/components/BaseNewsCard'
 export default {
   components: { BaseNewsCard },
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get('news/')
+    console.log(data)
+    return { news: data }
+  },
   data() {
     return {
-      news: [
-        {
-          id: 1,
-          title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-          date: 'Апрель, 22, 2019',
-          image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSubSEurzKVzKkQpxewTW_dludtKuIDmciqbeb9OknIwv643u2'
-        },
-        {
-          id: 2,
-          title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-          date: 'Май, 17, 2019'
-        },
-        {
-          id: 3,
-          title: 'Title 3',
-          date: 'Июнь, 9, 2019'
-        },
-        {
-          id: 4,
-          title: 'Title 4',
-          date: 'Февраль, 23, 2020'
-        }
-      ]
+      // news: []
     }
   }
 }
