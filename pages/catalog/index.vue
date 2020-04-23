@@ -41,7 +41,11 @@
         />
       </div>
     </div>
-    <base-paggination :list-data="[1, 2, 3, 4]"></base-paggination>
+    <base-paggination
+      :size="10"
+      :current-page="$route.params.page ? $route.params.page : 1"
+      @change="changePage"
+    />
   </div>
 </template>
 
@@ -64,7 +68,28 @@ export default {
       search: ''
     }
   },
+<<<<<<< HEAD
   mounted() {}
+=======
+  mounted() {
+    this.$axios.$get('/catalog/products/').then((data) => {
+      this.products = data.results
+    })
+    this.$axios.$get('/catalog/categories/').then((data) => {
+      this.categories = data
+    })
+  },
+  methods: {
+    changePage(page) {
+      this.$axios
+        .$get(`/catalog/products`, { params: { page } })
+        .then((data) => {
+          this.products = data.results
+        })
+        .catch()
+    }
+  }
+>>>>>>> ec61081578fda7dd7fdddfa7832a23b2fcea267c
 }
 </script>
 
