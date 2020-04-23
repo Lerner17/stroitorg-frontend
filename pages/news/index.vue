@@ -26,16 +26,12 @@
 import BaseNewsCard from '@/components/BaseNewsCard'
 import BasePaggination from '@/components/BasePaggination'
 export default {
-<<<<<<< HEAD
-  components: { BaseNewsCard },
+  components: { BaseNewsCard, BasePaggination },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('news/')
     console.log(data)
     return { news: data }
   },
-=======
-  components: { BaseNewsCard, BasePaggination },
->>>>>>> ec61081578fda7dd7fdddfa7832a23b2fcea267c
   data() {
     return {
       // news: []

@@ -41,7 +41,7 @@
         />
       </div>
     </div>
-    <base-paggination
+    <BasePaggination
       :size="10"
       :current-page="$route.params.page ? $route.params.page : 1"
       @change="changePage"
@@ -68,16 +68,13 @@ export default {
       search: ''
     }
   },
-<<<<<<< HEAD
-  mounted() {}
-=======
   mounted() {
-    this.$axios.$get('/catalog/products/').then((data) => {
-      this.products = data.results
-    })
-    this.$axios.$get('/catalog/categories/').then((data) => {
-      this.categories = data
-    })
+    // this.$axios.$get('/catalog/products/').then((data) => {
+    //   this.products = data.results
+    // })
+    // this.$axios.$get('/catalog/categories/').then((data) => {
+    //   this.categories = data
+    // })
   },
   methods: {
     changePage(page) {
@@ -89,7 +86,6 @@ export default {
         .catch()
     }
   }
->>>>>>> ec61081578fda7dd7fdddfa7832a23b2fcea267c
 }
 </script>
 
