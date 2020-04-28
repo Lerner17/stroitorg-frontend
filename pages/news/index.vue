@@ -56,10 +56,30 @@ export default {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 20px 100px;
+  padding: 20px 1rem;
   width: 100%;
-  max-width: 1920px;
+  max-width: 100%;
   box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1300px) {
+  .News {
+    max-width: 1300px;
+  }
+}
+
+@media screen and (min-width: 1420px) {
+  .News {
+    max-width: 1400px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .News {
+    max-width: 1920px;
+  }
 }
 
 /* .News:after {
