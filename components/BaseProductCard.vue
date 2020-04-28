@@ -124,7 +124,7 @@ export default {
 .products__item_title {
   /* display: inline-block; */
   width: 206px;
-  height: 24px;
+  min-height: 24px;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.025em;
