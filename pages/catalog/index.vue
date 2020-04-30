@@ -135,7 +135,7 @@ export default {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   /*flex-direction: row;*/
   /*flex-wrap: wrap;*/
   justify-content: center;
@@ -144,7 +144,13 @@ export default {
   /*width: calc(100% - 300px);*/
   /* width: 100%; */
   grid-gap: 30px;
+  margin-top: 1rem;
   box-sizing: border-box;
+}
+@media screen {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 
 .asside_title {

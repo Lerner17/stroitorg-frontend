@@ -2,7 +2,12 @@
   <div class="products__item pt-5">
     <span v-if="isNew" class="label new">NEW</span>
     <span v-if="isSale" class="label sale">SALE</span>
-    <img :src="image" class="products__item--image" />
+    <img
+      :src="image"
+      class="products__item--image"
+      :alt="name"
+      @click="$router.push(`/catalog/${id}`)"
+    />
     <!-- <img v-else src="/images/no_image.png" class="products__item--image" /> -->
     <div class="products__item_title">{{ name }}</div>
     <div class="products__item--price-wrap">
@@ -11,16 +16,19 @@
       </div>
       <div class="products__item--price">{{ price | currency }}</div>
     </div>
-    <div style="width: 100%;">
+    <div style="width: 100%;" class="pt-2 pl-5 pr-5">
       <BaseButton
-        style="font-size: 12px;"
-        class="ml-5 mr-5 mb-2"
+        style="font-size: 12px; margin-left: auto;margin-right: auto"
+        class="mb-2"
         color="danger"
         @click="addToCart"
         >Добавить в корзину</BaseButton
       >
       <nuxt-link :to="`/catalog/${id}`">
-        <BaseButton style="font-size: 12px;" class="ml-5 mr-5 mb-5" color="warn"
+        <BaseButton
+          style="font-size: 12px; margin-left: auto;margin-right: auto"
+          class="mb-5"
+          color="warn"
           >Посмотреть товар</BaseButton
         >
       </nuxt-link>
@@ -88,11 +96,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 270px;
+  /*max-width: 270px;*/
   width: 100%;
   min-height: 330px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  margin: 15px;
   overflow-x: hidden;
 }
 .label {
@@ -120,6 +127,7 @@ export default {
   max-width: 100%;
   vertical-align: center;
   margin: auto;
+  cursor: pointer;
 }
 .products__item_title {
   /* display: inline-block; */
