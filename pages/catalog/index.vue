@@ -19,15 +19,7 @@
           </nuxt-link>
         </ul>-->
         <CategoryList :items="categories"></CategoryList>
-        <div class="serach-form">
-          <input
-            v-model="search"
-            type="text"
-            class="serach-form__input"
-            placeholder="Поиск..."
-          />
-          <button class="search-form__btn mdi mdi-magnify"></button>
-        </div>
+        <BaseSearch />
       </div>
       <div class="products">
         <base-product-card
@@ -54,9 +46,10 @@
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
+import BaseSearch from '@/components/BaseSearch'
 import CategoryList from '@/components/CategoryList/CategoryList'
 export default {
-  components: { BaseProductCard, BasePaggination, CategoryList },
+  components: { BaseProductCard, BasePaggination, CategoryList, BaseSearch },
   async asyncData({ $axios }) {
     const data = await $axios.$get('/catalog/products/')
     const categories = await $axios.$get('/catalog/categories/')
@@ -88,6 +81,9 @@ export default {
           this.products = data.results
         })
         .catch()
+    },
+    getSearch() {
+      this.$router.push('/catalog/sarch/')
     }
   }
 }
