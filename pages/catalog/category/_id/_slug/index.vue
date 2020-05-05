@@ -89,6 +89,7 @@ export default {
   color: black;
 }
 
+/*
 .Catalog__container {
   display: flex;
   flex-direction: row;
@@ -99,6 +100,7 @@ export default {
   flex-wrap: wrap;
   padding-top: 90px;
 }
+*/
 
 .Catalog__container_sidebar {
   width: 300px;
@@ -178,8 +180,8 @@ export default {
   .Catalog__container_sidebar {
     width: 100%;
   }
-  .Catalog__container {
+  /*.Catalog__container {
     display: block;
-  }
+  }*/
 }
 </style>
