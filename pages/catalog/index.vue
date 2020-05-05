@@ -8,15 +8,17 @@
     <div class="Catalog__container">
       <div class="Catalog__container_sidebar">
         <h6 class="asside_title">Категории</h6>
-        <ul class="list-marked-2">
+        <!--<ul class="list-marked-2">
           <nuxt-link
             v-for="c in categories"
             :key="c.id"
             tag="li"
             :to="`/catalog/category/${c.id}/${c.slug}`"
-            >{{ c.name }}</nuxt-link
           >
-        </ul>
+            {{ c.name }}
+          </nuxt-link>
+        </ul>-->
+        <CategoryList :items="categories"></CategoryList>
         <div class="serach-form">
           <input
             v-model="search"
@@ -52,11 +54,13 @@
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
+import CategoryList from '@/components/CategoryList/CategoryList'
 export default {
-  components: { BaseProductCard, BasePaggination },
+  components: { BaseProductCard, BasePaggination, CategoryList },
   async asyncData({ $axios }) {
     const data = await $axios.$get('/catalog/products/')
-    return { products: data.results }
+    const categories = await $axios.$get('/catalog/categories/')
+    return { products: data.results, categories }
     // await $axios.$get('/catalog/categories/').then((data) => {
     //   // data.categories = data
     // })
@@ -110,30 +114,47 @@ export default {
 }
 
 .Catalog__container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  flex-wrap: wrap;
+  display: grid;
+  /*flex-direction: row;*/
+  /*width: 100%;*/
+  /*flex-wrap: wrap;*/
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
   margin: 0 50px;
   box-sizing: border-box;
-  flex-wrap: wrap;
   padding-top: 90px;
 }
 
+@media screen and (min-width: 768px) {
+  .Catalog__container {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
 .Catalog__container_sidebar {
-  width: 300px;
+  /*width: 300px;*/
+  /*flex: 20%;*/
   box-sizing: border-box;
 }
 
 .products {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  /*flex-direction: row;*/
+  /*flex-wrap: wrap;*/
   justify-content: center;
+  /*flex-basis: 100%;*/
   /* padding: 20px 100px; */
-  width: calc(100% - 300px);
+  /*width: calc(100% - 300px);*/
   /* width: 100%; */
+  grid-gap: 30px;
+  margin-top: 1rem;
   box-sizing: border-box;
+}
+@media screen {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 
 .asside_title {

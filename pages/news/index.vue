@@ -14,19 +14,19 @@
         :image="n.image"
       ></base-news-card>
     </div>
-    <base-paggination
+    <!--<base-paggination
       :size="6"
       :current-page="$route.params.page ? $route.params.page : 1"
       @change="changePage"
-    />
+    />-->
   </div>
 </template>
 
 <script>
 import BaseNewsCard from '@/components/BaseNewsCard'
-import BasePaggination from '@/components/BasePaggination'
+// import BasePaggination from '@/components/BasePaggination'
 export default {
-  components: { BaseNewsCard, BasePaggination },
+  components: { BaseNewsCard /* BasePaggination */ },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('news/')
     console.log(data)
@@ -56,10 +56,30 @@ export default {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 20px 100px;
+  padding: 20px 1rem;
   width: 100%;
-  max-width: 1920px;
+  max-width: 100%;
   box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1300px) {
+  .News {
+    max-width: 1300px;
+  }
+}
+
+@media screen and (min-width: 1420px) {
+  .News {
+    max-width: 1400px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .News {
+    max-width: 1920px;
+  }
 }
 
 /* .News:after {

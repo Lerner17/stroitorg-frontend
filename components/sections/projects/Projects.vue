@@ -31,8 +31,17 @@ export default {
 }
 
 .Projects__wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
+  grid-gap: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .Projects__wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+  }
 }
 
 @media screen and (max-width: 550px) {

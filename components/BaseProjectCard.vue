@@ -16,11 +16,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  /*max-width: 400px;*/
   width: 100%;
-  max-height: 300px;
+  /*max-height: 300px;*/
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  margin: 15px;
+  /*margin: 15px;*/
   overflow: hidden;
 }
 
