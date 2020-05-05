@@ -4,7 +4,7 @@
       <div class="BaseFooter__content__block">
         <div class="BaseFooter__content__item-middle">
           <span class="mdi mdi-arrange-send-backward"></span>
-          <span class="BaseFooter__content__item__title">About us</span>
+          <span class="BaseFooter__content__item__title">О нас</span>
           <p class="BaseFooter__content__text_about">
             PreSteel is a worldwide award-winning and recognized supplier of
             high-quality steel products and services.
@@ -26,7 +26,7 @@
         </div>
         <div class="BaseFooter__content__item-middle">
           <span class="mdi mdi-contacts"></span>
-          <span class="BaseFooter__content__item__title">Get in touch</span>
+          <span class="BaseFooter__content__item__title">Наши контакты</span>
           <p class="BaseFooter__content__text_address">
             Телефон
           </p>
@@ -51,7 +51,7 @@
         </div>
         <div class="BaseFooter__content__item-large">
           <span class="mdi mdi-link-variant"></span>
-          <span class="BaseFooter__content__item__title">Useful links</span>
+          <span class="BaseFooter__content__item__title">Ссылки</span>
           <ul class="link-list">
             <li class="link">
               <a href="#" style="color: white">Наша история</a>

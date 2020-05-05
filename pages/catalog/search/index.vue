@@ -3,8 +3,7 @@
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
-      ><nuxt-link to="/catalog">Каталог</nuxt-link
-      ><span class="mdi mdi-arrow-right"></span><span>{{ products.name }}</span>
+      ><span class="links_tree--bold">Каталог</span>
     </div>
     <div class="Catalog__container">
       <div class="Catalog__container_sidebar">
@@ -15,15 +14,16 @@
             :key="c.id"
             tag="li"
             :to="`/catalog/category/${c.id}/${c.slug}`"
-            >{{ c.name }}</nuxt-link
           >
+            {{ c.name }}
+          </nuxt-link>
         </ul>-->
         <CategoryList :items="categories"></CategoryList>
         <BaseSearch />
       </div>
       <div class="products">
         <base-product-card
-          v-for="product in products.products"
+          v-for="product in products"
           :id="product.id"
           :key="product.id"
           :name="product.name"
@@ -35,33 +35,57 @@
         />
       </div>
     </div>
+    <BasePaggination
+      :size="10"
+      :current-page="$route.params.page ? $route.params.page : 1"
+      @change="changePage"
+    />
   </div>
 </template>
 
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
-import CategoryList from '@/components/CategoryList/CategoryList'
+import BasePaggination from '@/components/BasePaggination'
 import BaseSearch from '@/components/BaseSearch'
+import CategoryList from '@/components/CategoryList/CategoryList'
 export default {
-  components: { BaseProductCard, CategoryList, BaseSearch },
+  components: { BaseProductCard, BasePaggination, CategoryList, BaseSearch },
+  async asyncData({ $axios, params }) {
+    const data = await $axios.$get(`/catalog/products/?search=${params.q}`)
+    const categories = await $axios.$get('/catalog/categories/')
+    return { products: data.results, categories }
+    // await $axios.$get('/catalog/categories/').then((data) => {
+    //   // data.categories = data
+    // })
+  },
   data() {
     return {
-      products: [],
+      // products: [],
       categories: [],
-      search: '1'
+      search: ''
     }
   },
   mounted() {
-    this.$axios
-      .$get(`/catalog/categories/${this.$route.params.id}/`)
-      .then((data) => {
-        this.products = data
-      })
-    this.$axios.$get('/catalog/categories/').then((data) => {
-      this.categories = data
-    })
+    // this.$axios.$get('/catalog/products/').then((data) => {
+    //   this.products = data.results
+    // })
+    // this.$axios.$get('/catalog/categories/').then((data) => {
+    //   this.categories = data
+    // })
   },
-  methods: {}
+  methods: {
+    changePage(page) {
+      this.$axios
+        .$get(`/catalog/products`, { params: { page } })
+        .then((data) => {
+          this.products = data.results
+        })
+        .catch()
+    },
+    getSearch() {
+      this.$router.push('/catalog/sarch/')
+    }
+  }
 }
 </script>
 
@@ -85,33 +109,49 @@ export default {
   color: black;
 }
 
-/*
 .Catalog__container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  flex-wrap: wrap;
+  display: grid;
+  /*flex-direction: row;*/
+  /*width: 100%;*/
+  /*flex-wrap: wrap;*/
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
   margin: 0 50px;
   box-sizing: border-box;
-  flex-wrap: wrap;
   padding-top: 90px;
 }
-*/
 
-.Catalog__container_sidebar {
-  width: 300px;
+@media screen and (min-width: 768px) {
+  .Catalog__container {
+    grid-template-columns: 300px 1fr;
+  }
 }
 
-/*.products {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  !* padding: 20px 100px; *!
-  width: calc(100% - 300px);
-  !* width: 100%; *!
+.Catalog__container_sidebar {
+  /*width: 300px;*/
+  /*flex: 20%;*/
   box-sizing: border-box;
-}*/
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr;
+  /*flex-direction: row;*/
+  /*flex-wrap: wrap;*/
+  justify-content: center;
+  /*flex-basis: 100%;*/
+  /* padding: 20px 100px; */
+  /*width: calc(100% - 300px);*/
+  /* width: 100%; */
+  grid-gap: 30px;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+@media screen {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
 
 .asside_title {
   font-weight: 400;
@@ -176,8 +216,8 @@ export default {
   .Catalog__container_sidebar {
     width: 100%;
   }
-  /*.Catalog__container {
+  .Catalog__container {
     display: block;
-  }*/
+  }
 }
 </style>
