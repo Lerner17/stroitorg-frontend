@@ -14,19 +14,19 @@
         :image="n.image"
       ></base-news-card>
     </div>
-    <base-paggination
+    <!--<base-paggination
       :size="6"
       :current-page="$route.params.page ? $route.params.page : 1"
       @change="changePage"
-    />
+    />-->
   </div>
 </template>
 
 <script>
 import BaseNewsCard from '@/components/BaseNewsCard'
-import BasePaggination from '@/components/BasePaggination'
+// import BasePaggination from '@/components/BasePaggination'
 export default {
-  components: { BaseNewsCard, BasePaggination },
+  components: { BaseNewsCard /* BasePaggination */ },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('news/')
     console.log(data)
