@@ -38,6 +38,6 @@ export default {
 .category__item {
 }
 .category__link_active {
-  color: red;
+  color: #b62e26 !important;
 }
 </style>

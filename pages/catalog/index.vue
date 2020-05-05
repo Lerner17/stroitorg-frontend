@@ -216,8 +216,8 @@ export default {
   .Catalog__container_sidebar {
     width: 100%;
   }
-  .Catalog__container {
+  /*.Catalog__container {
     display: block;
-  }
+  }*/
 }
 </style>
