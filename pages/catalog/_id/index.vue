@@ -15,6 +15,7 @@
         <slide v-for="slide in slider" :key="slide.id">
           <img class="good__image" :src="slide.image" />
         </slide>
+        <hooper-navigation slot="hooper-addons"></hooper-navigation>
       </hooper>
       <div class="good_info">
         <h4>{{ product.name }}</h4>
@@ -61,10 +62,10 @@
 </template>
 
 <script>
-import { Hooper, Slide } from 'hooper'
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
 import BaseButton from '@/components/BaseButton'
 export default {
-  components: { Hooper, Slide, BaseButton },
+  components: { Hooper, Slide, HooperNavigation, BaseButton },
   data() {
     return {
       count: 1,
@@ -103,6 +104,9 @@ export default {
 </script>
 
 <style>
+.Goods__slider_btn_bottom {
+  position: absolute;
+}
 .GoodDetail {
   max-width: 1920px;
   width: 100%;
