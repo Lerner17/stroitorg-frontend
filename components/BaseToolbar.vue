@@ -1,6 +1,6 @@
 <template>
   <div class="BaseToolbar">
-    <BaseDrawer :show="isDrawerShow" />
+    <BaseDrawer :show="isDrawerShow" @onLinkEnter="isDrawerShow = false" />
     <div class="BaseToolbar__content">
       <div class="BaseToolbar__wrapper">
         <button class="burger" @click="isDrawerShow = !isDrawerShow">

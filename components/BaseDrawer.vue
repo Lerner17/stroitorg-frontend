@@ -3,16 +3,33 @@
     <div v-if="show" class="BaseDrawer pt-5">
       <nav>
         <ul class="BaseDrawer__menu">
-          <nuxt-link tag="li" to="/" class="BaseDrawer__item"
+          <nuxt-link
+            tag="li"
+            to="/"
+            class="BaseDrawer__item"
+            @click.native="onLinkEnter"
             >Главная</nuxt-link
           >
-          <nuxt-link tag="li" to="/news" class="BaseDrawer__item"
+          <nuxt-link
+            tag="li"
+            to="/news"
+            class="BaseDrawer__item"
+            @click.native="onLinkEnter"
             >Новости</nuxt-link
           >
-          <nuxt-link tag="li" to="/catalog" class="BaseDrawer__item"
+          <nuxt-link
+            tag="li"
+            to="/catalog"
+            class="BaseDrawer__item"
+            @click.native="onLinkEnter"
             >Каталог</nuxt-link
           >
-          <nuxt-link tag="li" to="/about" class="BaseDrawer__item">
+          <nuxt-link
+            tag="li"
+            to="/about"
+            class="BaseDrawer__item"
+            @click.native="onLinkEnter"
+          >
             О компании
           </nuxt-link>
         </ul>
@@ -27,6 +44,11 @@ export default {
     show: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    onLinkEnter() {
+      this.$emit('onLinkEnter')
     }
   }
 }
