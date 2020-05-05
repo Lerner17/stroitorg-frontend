@@ -9,7 +9,7 @@
     <div class="Catalog__container">
       <div class="Catalog__container_sidebar">
         <h6 class="asside_title">Категории</h6>
-        <ul class="list-marked-2">
+        <!--<ul class="list-marked-2">
           <nuxt-link
             v-for="c in categories"
             :key="c.id"
@@ -17,7 +17,8 @@
             :to="`/catalog/category/${c.id}/${c.slug}`"
             >{{ c.name }}</nuxt-link
           >
-        </ul>
+        </ul>-->
+        <CategoryList :items="categories"></CategoryList>
         <div class="serach-form">
           <input
             type="text"
@@ -46,8 +47,9 @@
 
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
+import CategoryList from '@/components/CategoryList/CategoryList'
 export default {
-  components: { BaseProductCard },
+  components: { BaseProductCard, CategoryList },
   data() {
     return {
       products: [],
@@ -102,16 +104,16 @@ export default {
   width: 300px;
 }
 
-.products {
+/*.products {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* padding: 20px 100px; */
+  !* padding: 20px 100px; *!
   width: calc(100% - 300px);
-  /* width: 100%; */
+  !* width: 100%; *!
   box-sizing: border-box;
-}
+}*/
 
 .asside_title {
   font-weight: 400;

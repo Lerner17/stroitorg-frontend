@@ -8,15 +8,17 @@
     <div class="Catalog__container">
       <div class="Catalog__container_sidebar">
         <h6 class="asside_title">Категории</h6>
-        <ul class="list-marked-2">
+        <!--<ul class="list-marked-2">
           <nuxt-link
             v-for="c in categories"
             :key="c.id"
             tag="li"
             :to="`/catalog/category/${c.id}/${c.slug}`"
-            >{{ c.name }}</nuxt-link
           >
-        </ul>
+            {{ c.name }}
+          </nuxt-link>
+        </ul>-->
+        <CategoryList :items="categories"></CategoryList>
         <div class="serach-form">
           <input
             v-model="search"
@@ -52,11 +54,13 @@
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
+import CategoryList from '@/components/CategoryList/CategoryList'
 export default {
-  components: { BaseProductCard, BasePaggination },
+  components: { BaseProductCard, BasePaggination, CategoryList },
   async asyncData({ $axios }) {
     const data = await $axios.$get('/catalog/products/')
-    return { products: data.results }
+    const categories = await $axios.$get('/catalog/categories/')
+    return { products: data.results, categories }
     // await $axios.$get('/catalog/categories/').then((data) => {
     //   // data.categories = data
     // })
