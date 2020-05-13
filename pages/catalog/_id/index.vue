@@ -48,8 +48,8 @@
               </div>
             </div>
             <base-button
-              class="ml-5"
-              size="large"
+              class="ml-5 pl-1 pr-2"
+              size="medium"
               color="danger"
               @click="addToCart()"
               >Добавить в корзину</base-button
@@ -63,6 +63,7 @@
 
 <script>
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
+import { mapActions } from 'vuex'
 import BaseButton from '@/components/BaseButton'
 export default {
   components: { Hooper, Slide, HooperNavigation, BaseButton },
@@ -88,6 +89,9 @@ export default {
       })
   },
   methods: {
+    ...mapActions({
+      updateCart: 'cart/updateCart'
+    }),
     addCount() {
       ++this.count
     },
@@ -97,7 +101,19 @@ export default {
       }
     },
     addToCart() {
-      this.$store.dispatch({ type: 'updateCartWithPayload', count: 10 })
+      // this.$store.dispatch({ type: 'updateCartWithPayload', count: 10 })
+      const item = {
+        id: this.product.id,
+        title: this.product.title,
+        price: this.product.price,
+        new_price: this.product.newPrice,
+        image: this.product.image
+      }
+      let i = 0
+      while (i < this.count) {
+        this.updateCart(item)
+        ++i
+      }
     }
   }
 }
@@ -155,28 +171,6 @@ export default {
   flex-wrap: wrap;
 }
 
-/* .good__image {
-  max-width: 523px;
-  min-width: 350px;
-  width: 100%;
-} */
-
-/* .good__view {
-  max-width: 532px !important;
-  width: 100%;
-  height: auto;
-}
-
-.good__view .hooper-track {
-  min-width: 350px;
-  max-width: 523px;
-  width: 100%;
-}
-
-.good__view .hooper-slide {
-  width: 100% !important;
-} */
-
 .good_price {
   font-size: 24px;
   letter-spacing: 0.05em;
@@ -232,10 +226,10 @@ export default {
   background: #f3f3f3;
   font-weight: 400;
   font-size: 24px;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   text-align: center;
-  line-height: 80px;
+  line-height: 50px;
 }
 
 .counter_buttons {
@@ -246,11 +240,12 @@ export default {
 }
 
 .counter_buttons button {
-  width: 37px;
-  height: 37px;
-  font-size: 24px;
-  line-height: 37px;
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  line-height: 25px;
   background: #f3f3f3;
   border: none;
+  outline: none;
 }
 </style>

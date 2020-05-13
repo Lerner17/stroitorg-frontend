@@ -26,7 +26,11 @@
                 </nuxt-link>
               </td>
               <td>{{ item.price }} ₽</td>
-              <td>{{ item.quantity }}</td>
+              <td>
+                <span class="countButton" @click="addCount(item)">-</span
+                >{{ item.quantity
+                }}<span class="countButton" @click="removeCount(item)">+</span>
+              </td>
               <td>{{ item.price * item.quantity }} ₽</td>
             </tr>
           </tbody>
@@ -55,6 +59,10 @@ export default {
     total() {
       return this.$store.getters['cart/cartValue']
     }
+  },
+  methods: {
+    addCount(item) {},
+    removeCount(item) {}
   }
 }
 </script>
@@ -165,6 +173,16 @@ export default {
   font-size: 36px;
   font-weight: 500;
   color: black;
+}
+
+.countButton {
+  width: 20px;
+  height: 40px;
+  background: #f3f3f3;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
 }
 
 @media screen and (max-width: 1120px) {
