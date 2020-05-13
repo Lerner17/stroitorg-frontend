@@ -6,21 +6,7 @@
       ><span class="links_tree--bold">Каталог</span>
     </div>
     <div class="Catalog__container">
-      <div class="Catalog__container_sidebar">
-        <h6 class="asside_title">Категории</h6>
-        <!--<ul class="list-marked-2">
-          <nuxt-link
-            v-for="c in categories"
-            :key="c.id"
-            tag="li"
-            :to="`/catalog/category/${c.id}/${c.slug}`"
-          >
-            {{ c.name }}
-          </nuxt-link>
-        </ul>-->
-        <CategoryList :items="categories"></CategoryList>
-        <BaseSearch />
-      </div>
+      <CatalogSidebar :categories="categories" />
       <div class="products">
         <base-product-card
           v-for="product in products"
@@ -46,10 +32,9 @@
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
-import BaseSearch from '@/components/BaseSearch'
-import CategoryList from '@/components/CategoryList/CategoryList'
+import CatalogSidebar from '@/components/CatalogSidebar'
 export default {
-  components: { BaseProductCard, BasePaggination, CategoryList, BaseSearch },
+  components: { BaseProductCard, BasePaggination, CatalogSidebar },
   async asyncData({ $axios, params }) {
     const data = await $axios.$get(`/catalog/products/?search=${params.q}`)
     const categories = await $axios.$get('/catalog/categories/')
