@@ -1,5 +1,12 @@
 <template>
-  <div class="BaseToolbar">
+  <div
+    :class="{
+      classA: scrollPosition < 100,
+      BaseToolbarSmall: scrollPosition > 100
+    }"
+    class="BaseToolbar"
+    @scroll="letsScroll = true"
+  >
     <BaseDrawer :show="isDrawerShow" @onLinkEnter="isDrawerShow = false" />
     <div class="BaseToolbar__content">
       <div class="BaseToolbar__wrapper">
@@ -11,11 +18,11 @@
         <nav>
           <ul class="menu">
             <nuxt-link tag="li" to="/" class="menu__item">Главная</nuxt-link>
-            <nuxt-link tag="li" to="/news" class="menu__item"
-              >Новости</nuxt-link
-            >
             <nuxt-link tag="li" to="/catalog" class="menu__item"
               >Каталог</nuxt-link
+            >
+            <nuxt-link tag="li" to="/news" class="menu__item"
+              >Новости</nuxt-link
             >
             <nuxt-link tag="li" to="/about" class="menu__item">
               О компании
@@ -51,11 +58,13 @@
 <script>
 import BaseButton from './BaseButton.vue'
 import BaseDrawer from '@/components/BaseDrawer'
+//
 export default {
   components: { BaseButton, BaseDrawer },
   data() {
     return {
-      isDrawerShow: false
+      isDrawerShow: false,
+      scrollPosition: null
     }
   },
   computed: {
@@ -64,6 +73,17 @@ export default {
         total += item.quantity
         return total
       }, 0)
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll)
+  },
+  destroy() {
+    window.removeEventListener('scroll', this.updateScroll)
+  },
+  methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
     }
   }
 }
@@ -91,6 +111,10 @@ export default {
   position: fixed;
   top: 0;
   z-index: 20;
+}
+
+.BaseToolbarSmall .BaseToolbar__content {
+  height: 65px;
 }
 
 .BaseToolbar__wrapper {
