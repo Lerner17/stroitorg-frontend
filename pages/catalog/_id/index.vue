@@ -117,8 +117,8 @@ export default {
   width: 100%;
   color: #777777;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .links_tree > a {
