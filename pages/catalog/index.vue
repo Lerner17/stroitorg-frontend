@@ -6,21 +6,7 @@
       ><span class="links_tree--bold">Каталог</span>
     </div>
     <div class="Catalog__container">
-      <div class="Catalog__container_sidebar">
-        <h6 class="asside_title">Категории</h6>
-        <!--<ul class="list-marked-2">
-          <nuxt-link
-            v-for="c in categories"
-            :key="c.id"
-            tag="li"
-            :to="`/catalog/category/${c.id}/${c.slug}`"
-          >
-            {{ c.name }}
-          </nuxt-link>
-        </ul>-->
-        <CategoryList :items="categories"></CategoryList>
-        <BaseSearch />
-      </div>
+      <CatalogSidebar :categories="categories" />
       <div class="products">
         <base-product-card
           v-for="product in products"
@@ -46,10 +32,10 @@
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
-import BaseSearch from '@/components/BaseSearch'
-import CategoryList from '@/components/CategoryList/CategoryList'
+import CatalogSidebar from '@/components/CatalogSidebar'
+
 export default {
-  components: { BaseProductCard, BasePaggination, CategoryList, BaseSearch },
+  components: { CatalogSidebar, BaseProductCard, BasePaggination },
   async asyncData({ $axios }) {
     const data = await $axios.$get('/catalog/products/')
     const categories = await $axios.$get('/catalog/categories/')
@@ -127,12 +113,6 @@ export default {
   }
 }
 
-.Catalog__container_sidebar {
-  /*width: 300px;*/
-  /*flex: 20%;*/
-  box-sizing: border-box;
-}
-
 .products {
   display: grid;
   grid-template-columns: 1fr;
@@ -151,17 +131,6 @@ export default {
   .products {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-}
-
-.asside_title {
-  font-weight: 400;
-  text-transform: none;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #e1e1e1;
-  letter-spacing: 0.1em;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif;
-  color: #151515;
 }
 
 .serach-form {
@@ -213,9 +182,6 @@ export default {
 }
 
 @media (max-width: 1020px) {
-  .Catalog__container_sidebar {
-    width: 100%;
-  }
   /*.Catalog__container {
     display: block;
   }*/

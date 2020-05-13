@@ -7,20 +7,7 @@
       ><span class="mdi mdi-arrow-right"></span><span>{{ products.name }}</span>
     </div>
     <div class="Catalog__container">
-      <div class="Catalog__container_sidebar">
-        <h6 class="asside_title">Категории</h6>
-        <!--<ul class="list-marked-2">
-          <nuxt-link
-            v-for="c in categories"
-            :key="c.id"
-            tag="li"
-            :to="`/catalog/category/${c.id}/${c.slug}`"
-            >{{ c.name }}</nuxt-link
-          >
-        </ul>-->
-        <CategoryList :items="categories"></CategoryList>
-        <BaseSearch />
-      </div>
+      <CatalogSidebar :categories="categories" />
       <div class="products">
         <base-product-card
           v-for="product in products.products"
@@ -40,10 +27,9 @@
 
 <script>
 import BaseProductCard from '@/components/BaseProductCard'
-import CategoryList from '@/components/CategoryList/CategoryList'
-import BaseSearch from '@/components/BaseSearch'
+import CatalogSidebar from '@/components/CatalogSidebar'
 export default {
-  components: { BaseProductCard, CategoryList, BaseSearch },
+  components: { BaseProductCard, CatalogSidebar },
   data() {
     return {
       products: [],
