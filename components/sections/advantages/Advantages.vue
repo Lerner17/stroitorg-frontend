@@ -6,7 +6,12 @@
       >
       <h3>Наши приемущества</h3>
       <div>
-        <AdvantagesItem v-for="a in advantages" :key="a.id" :title="a.title" />
+        <AdvantagesItem
+          v-for="a in advantages"
+          :key="a.id"
+          :title="a.title"
+          :description="a.description"
+        />
       </div>
     </div>
     <div class="Advatages__video">
