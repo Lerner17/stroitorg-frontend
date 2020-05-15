@@ -1,124 +1,43 @@
 <template>
-  <div class="Advantages">
-    <div class="Advantages__title mb-8">
-      <span class="title__row"></span>
-      <h5>Наши приемущества</h5>
-      <div class="Advantages__slider_btn">
-        <button @click.prevent="slidePrev">
-          <span class="mdi mdi-arrow-left"></span>
-        </button>
-        <button @click.prevent="slideNext">
-          <span class="mdi mdi-arrow-right"></span>
-        </button>
+  <div class="SectionAdv">
+    <div class="Advantages">
+      <base-section-header dark class="mt-12 mb-12"
+        >Почему мы?</base-section-header
+      >
+      <h3>Наши приемущества</h3>
+      <div>
+        <AdvantagesItem v-for="a in advantages" :key="a.id" :title="a.title" />
       </div>
     </div>
-    <hooper
-      ref="carousel"
-      class="Advantages__slider"
-      :settings="hooperSettings"
-    >
-      <slide>
-        <div class="Advantages__slider_item">
-          <div class="Advantages__slider_item__image">
-            <div class="slider_item__text"></div>
-          </div>
-          <span class="text_title"
-            >Уникальность <br />
-            И еще что-то</span
-          >
-        </div>
-      </slide>
-      <slide>
-        <div class="Advantages__slider_item">
-          <div class="Advantages__slider_item__image">
-            <div class="slider_item__text"></div>
-          </div>
-          <span class="text_title"
-            >Уникальность <br />
-            И еще что-то</span
-          >
-        </div>
-      </slide>
-      <slide>
-        <div class="Advantages__slider_item">
-          <div class="Advantages__slider_item__image">
-            <div class="slider_item__text"></div>
-          </div>
-          <span class="text_title"
-            >Уникальность <br />
-            И еще что-то</span
-          >
-        </div>
-      </slide>
-      <slide>
-        <div class="Advantages__slider_item">
-          <div class="Advantages__slider_item__image">
-            <div class="slider_item__text"></div>
-          </div>
-          <span class="text_title"
-            >Уникальность <br />
-            И еще что-то</span
-          >
-        </div>
-      </slide>
-    </hooper>
-    <div class="Advantages__slider_btn_bottom">
-      <button @click.prevent="slidePrev">
-        <span class="mdi mdi-arrow-left"></span>
-      </button>
-      <button @click.prevent="slideNext">
-        <span class="mdi mdi-arrow-right"></span>
-      </button>
+    <div class="Advatages__video">
+      <div class="video__content">
+        <div style="font-size: 50px" class="mdi mdi-play"></div>
+        <strong
+          >Видео презентация <br />
+          нашей компании</strong
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Hooper, Slide } from 'hooper'
+import AdvantagesItem from './AdvantagesItem'
+import { BaseSectionHeader } from '@/components/BaseSection'
 export default {
-  components: { Hooper, Slide },
+  components: {
+    BaseSectionHeader,
+    AdvantagesItem
+  },
   data() {
     return {
-      hooperSettings: {
-        infiniteScroll: true,
-        centerMode: true,
-        wheelControl: false,
-        breakpoints: {
-          2400: {
-            // 2400px ~
-            itemsToShow: 4
-          },
-          1800: {
-            // 1800px ~ 2400px
-            itemsToShow: 4
-          },
-          1500: {
-            // 1500px ~ 1800px
-            itemsToShow: 4
-          },
-          1100: {
-            // 1100px ~ 1500px
-            itemsToShow: 2.5
-          },
-          600: {
-            // 600px ~ 1100px
-            itemsToShow: 1.5
-          },
-          0: {
-            // 0px ~ 600px
-            itemsToShow: 1
-          }
-        }
-      }
+      advantages: []
     }
   },
-  methods: {
-    slidePrev() {
-      this.$refs.carousel.slidePrev()
-    },
-    slideNext() {
-      this.$refs.carousel.slideNext()
-    }
+  mounted() {
+    this.$axios.$get('/main/advantage/').then((data) => {
+      this.advantages = data
+    })
   }
 }
 </script>
@@ -126,153 +45,39 @@ export default {
 <style>
 .Advantages {
   padding: 0 75px 30px 75px;
-  box-sizing: border-box;
-  min-height: 450px;
-  margin-top: 50px;
   width: 100%;
   max-width: 1920px;
-}
-
-.Advantages .hooper-slide {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.Advantages__title {
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.title__row {
-  position: absolute;
-  top: 50%;
-  right: calc(100% + 35px);
-  width: 400%;
-  font-size: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.137);
-}
-
-.Advantages__slider {
-  height: auto !important;
-  overflow: hidden;
-  width: 100%;
-}
-
-.Advantages__slider_item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 400px;
-  width: 350px;
-}
-
-.Advantages__slider_item__image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('https://livedemo00.template-help.com/wt_prod-23021/images/services-11-420x320.jpg');
-  width: 100%;
-  height: 270px;
-}
-
-.slider_item__text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  color: #b62e26;
   box-sizing: border-box;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.25s;
-  transform: translateY(-20px);
-  opacity: 0;
-  /* display: none; */
 }
 
-.Advantages__slider_item:hover .slider_item__text {
-  transform: translateY(0);
-  opacity: 1;
+.Advatages__video {
+  width: 100%;
+  max-width: calc(1440px / 2);
+  height: 550px;
+  background-image: url('https://livedemo00.template-help.com/wt_prod-23021/images/video-1-1110x830.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-.text_title {
-  /* width: 100%; */
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.625;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #151515;
-  transition: all 0.25s;
-}
-
-.Advantages__slider_item:hover .text_title {
-  transform: translateY(-150px);
-  font-size: 18px;
-  letter-spacing: 0.3em;
-  color: red;
-}
-
-.cnt {
-  content: '';
-}
-
-.Advantages__slider_btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.Advantages__slider_btn > button {
-  background: none;
-  border: none;
-  font-size: 25px;
-  width: 40px;
-  height: 30px;
-}
-
-.Advantages__slider_btn > button:first-child {
-  border-right: 1px solid black;
-  /* padding-right: 20px; */
-}
-
-.Advantages__slider_btn_bottom {
-  margin-top: 20px;
+.SectionAdv {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  display: none;
+  width: 100%;
 }
 
-.Advantages__slider_btn_bottom > button {
-  background: none;
-  border: none;
+.video__content {
+  padding: 50px;
   font-size: 25px;
-  width: 40px;
-  height: 30px;
+  text-transform: uppercase;
 }
 
-@media screen and (max-width: 600px) {
-  .Advantages__slider_btn {
-    display: none;
+@media screen and (max-width: 1340px) {
+  .SectionAdv {
+    flex-direction: column-reverse;
   }
-
-  .Advantages__slider_btn_bottom {
-    display: flex;
+  .Advatages__video {
+    max-width: 100%;
   }
 }
 </style>

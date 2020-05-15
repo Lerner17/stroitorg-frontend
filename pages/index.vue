@@ -24,7 +24,7 @@
       </hooper>
     </base-section>
     <base-section>
-      <Advantages />
+      <Gallery />
     </base-section>
     <base-section dark>
       <Team />
@@ -52,8 +52,17 @@
             тысяч поставок ежемесячно
           </div>
         </div>
+        <div class="parallax__item">
+          <div class="item__number">200</div>
+          <div class="item__descr">
+            миллионов тон плитки мы продали
+          </div>
+        </div>
       </div>
     </section>
+    <base-section dark>
+      <Advantages />
+    </base-section>
     <base-section>
       <Partners />
     </base-section>
@@ -65,20 +74,22 @@ import { Hooper, Slide } from 'hooper'
 import 'hooper/dist/hooper.css'
 import BaseButton from '@/components/BaseButton'
 import BaseSection from '@/components/BaseSection'
-import Advantages from '@/components/sections/advantages/Advantages'
+import Gallery from '@/components/sections/gallery/Gallery'
 import Partners from '@/components/sections/partners/Partners'
 import Team from '@/components/sections/team/Team'
 import Projects from '@/components/sections/projects/Projects'
+import Advantages from '@/components/sections/advantages/Advantages'
 export default {
   components: {
     Hooper,
     Slide,
     BaseButton,
     BaseSection,
-    Advantages,
+    Gallery,
     Team,
     Projects,
-    Partners
+    Partners,
+    Advantages
   },
   data() {
     return {

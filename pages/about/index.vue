@@ -31,16 +31,16 @@
         <p class="contacts__title">
           Телефон
         </p>
-        <a href="tel:33" class="contacts__phone"
-          ><span class="icon mdi mdi-phone"></span>1-800-1234-567</a
+        <a href="tel:+7 (978) 022-44-11" class="contacts__phone"
+          ><span class="icon mdi mdi-phone"></span>+7 (978) 022-44-11</a
         >
       </div>
       <div class="contacts__item">
         <div class="contacts__title">
           E-Mail
         </div>
-        <a href="mailto:stroitorg@test.com" class="contacts__email">
-          <span class="icon mdi mdi-email-outline"></span>stroitorg@test.com</a
+        <a href="mailto:sales@st-ru.com" class="contacts__email">
+          <span class="icon mdi mdi-email-outline"></span>sales@st-ru.com</a
         >
       </div>
       <div class="contacts__item">

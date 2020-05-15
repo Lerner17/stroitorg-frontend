@@ -2,14 +2,13 @@
   <div class="Projects">
     <BaseSectionHeader class="mt-12 mb-12">Наши проекты</BaseSectionHeader>
     <div class="Projects__wrapper">
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
-      <base-project-card></base-project-card>
+      <base-project-card
+        v-for="p in projects"
+        :key="p.id"
+        :image="p.image"
+        :title="p.title"
+        :description="p.description"
+      ></base-project-card>
     </div>
   </div>
 </template>
@@ -18,7 +17,15 @@
 import { BaseSectionHeader } from '@/components/BaseSection'
 import BaseProjectCard from '@/components/BaseProjectCard'
 export default {
-  components: { BaseSectionHeader, BaseProjectCard }
+  components: { BaseSectionHeader, BaseProjectCard },
+  data() {
+    return {
+      projects: []
+    }
+  },
+  mounted() {
+    this.$axios.$get('/main/projects/').then((data) => (this.projects = data))
+  }
 }
 </script>
 

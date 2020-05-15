@@ -30,8 +30,8 @@
           <p class="BaseFooter__content__text_address">
             Телефон
           </p>
-          <a class="BaseFooter__contacts__link" href="tel:+79999999999">
-            +7 (999) 999-99-99
+          <a class="BaseFooter__contacts__link" href="tel:+7 (978) 022-44-11">
+            +7 (978) 022-44-11
           </a>
           <p class="BaseFooter__content__text_address">
             Адрес
@@ -42,11 +42,8 @@
           <p class="BaseFooter__content__text_address">
             E-mail
           </p>
-          <a
-            class="BaseFooter__contacts__link"
-            href="mailto:stroitorg@test.com"
-          >
-            stroitorg@test.com
+          <a class="BaseFooter__contacts__link" href="mailto:sales@st-ru.com">
+            sales@st-ru.com
           </a>
         </div>
         <div class="BaseFooter__content__item-large">

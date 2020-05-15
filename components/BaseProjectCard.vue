@@ -1,15 +1,31 @@
 <template>
   <div class="BaseProjectCard">
     <!-- <img src="/images/no_image.png" /> -->
-    <img
-      src="https://livedemo00.template-help.com/wt_prod-23021/images/project-11-570x470.jpg"
-    />
+    <img :src="image" />
     <div class="BaseProjectCard__title">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fuga
-      nulla dolorum!
+      {{ description }}
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    image: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>
 
 <style>
 .BaseProjectCard {
@@ -26,6 +42,7 @@
 
 .BaseProjectCard img {
   object-fit: cover;
+  height: 100%;
   object-position: center center;
   transition: 0.5s;
 }

@@ -31,8 +31,10 @@
         </nav>
         <div class="BaseToolBar__info">
           <div class="info__contacts">
-            <a href="tel:" class="phone">+7 999 111 22 32</a>
-            <a href="mailto:" class="email">example@mail.ru</a>
+            <a href="tel:+7 (978) 022-44-11" class="phone"
+              >+7 (978) 022-44-11</a
+            >
+            <a href="mailto:sales@st-ru.com" class="email">sales@st-ru.com</a>
           </div>
           <nuxt-link to="/cart">
             <BaseButton
