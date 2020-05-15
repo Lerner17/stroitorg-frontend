@@ -79,7 +79,7 @@ export default {
     }
   },
   mounted() {
-    this.$axios.$get('/main/advantage/').then((data) => (this.adv = data))
+    this.$axios.$get('/main/gallery/').then((data) => (this.adv = data))
   },
   methods: {
     slidePrev() {
