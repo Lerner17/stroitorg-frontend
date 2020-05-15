@@ -61,7 +61,7 @@
             </li>
             <li class="link"><a href="#" style="color: white">Каталог</a></li>
             <li class="link">
-              <a href="#" style="color: white">Наши контакты</a>
+              <a href="/contacts" style="color: white">Наши контакты</a>
             </li>
           </ul>
         </div>
