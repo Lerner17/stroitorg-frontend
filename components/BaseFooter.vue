@@ -6,8 +6,8 @@
           <span class="mdi mdi-arrange-send-backward"></span>
           <span class="BaseFooter__content__item__title">О нас</span>
           <p class="BaseFooter__content__text_about">
-            PreSteel is a worldwide award-winning and recognized supplier of
-            high-quality steel products and services.
+            Компания «Строй Торг» является официальным представителем основных
+            заводов-изготовителей строительных материалов.
           </p>
           <ul class="icon-list">
             <li class="footer-icon">
