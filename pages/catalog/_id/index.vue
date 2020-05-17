@@ -1,9 +1,9 @@
 <template>
   <div class="GoodDetail">
-    <div class="parallax parallax--mask">
+    <!-- <div class="parallax parallax--mask">
       <h3 style="postition: relative; z-index: 1;">{{ product.name }}</h3>
       <div class="header_parallax_row"></div>
-    </div>
+    </div> -->
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span

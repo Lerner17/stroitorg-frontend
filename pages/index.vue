@@ -11,7 +11,7 @@
           <div
             class="slider__item"
             :style="
-              `background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('${slide.image}');`
+              `background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url('${slide.image}');`
             "
           >
             <div class="item__title">
