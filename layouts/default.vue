@@ -1,5 +1,6 @@
 <template>
   <div class="DefaultLayout">
+    <CookieLaw />
     <base-toolbar></base-toolbar>
     <div class="DefaultLayout__content">
       <nuxt />
@@ -13,8 +14,9 @@
 <script>
 import BaseToolbar from '@/components/BaseToolbar'
 import BaseFooter from '@/components/BaseFooter'
+import CookieLaw from '@/components/CookieLaw'
 export default {
-  components: { BaseToolbar, BaseFooter }
+  components: { BaseToolbar, BaseFooter, CookieLaw }
 }
 </script>
 

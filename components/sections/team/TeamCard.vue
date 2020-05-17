@@ -8,6 +8,7 @@
           >{{ firstName }} <br />
           {{ lastName }}
         </span>
+        <a :href="`mailto:${email}`">{{ email }}</a>
       </div>
     </div>
     <div class="TeamCard__footer">
@@ -110,10 +111,12 @@ export default {
 
 .team-ruth-figure {
   display: block;
-  /* overflow: hidden; */
+  overflow: hidden;
   object-fit: cover;
   object-position: center center;
-  width: 110px;
+  min-width: 150px;
+  max-width: 320px;
+  width: 100%;
   clip-path: polygon(calc(100% - 11px) 0, 100% 15px, 100% 100%, 0 100%, 0 0);
 }
 

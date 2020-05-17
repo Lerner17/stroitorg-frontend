@@ -53,7 +53,8 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
-    'nuxtjs-mdi-font'
+    'nuxtjs-mdi-font',
+    'cookie-universal-nuxt'
   ],
 
   axios: {
