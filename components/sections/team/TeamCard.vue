@@ -54,8 +54,8 @@ export default {
   background-color: #414141;
   max-width: 370px;
   min-width: 350px;
-  height: auto;
-  min-height: 100%;
+  height: 100%;
+  min-height: 414px;
   padding-right: 10px;
   padding-bottom: 10px;
   will-change: transform;

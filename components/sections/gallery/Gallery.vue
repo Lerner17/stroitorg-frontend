@@ -67,11 +67,11 @@ export default {
           },
           1100: {
             // 1100px ~ 1500px
-            itemsToShow: 2.5
+            itemsToShow: 3
           },
           600: {
             // 600px ~ 1100px
-            itemsToShow: 1.5
+            itemsToShow: 2
           },
           0: {
             // 0px ~ 600px
