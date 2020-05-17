@@ -3,18 +3,11 @@
     <div class="news_detail">
       <h1 class="news__title">{{ news.title }}</h1>
       <div class="news__meta">
-        <time class="news__date">{{ news.created_at }}</time>
+        <time class="news__date">{{ news.created_at | formatDate }}</time>
         <ul class="news__meta-list meta-list">
           <li class="meta__author">
             <span class="icon mdi mdi-account-outline"></span>
-            <!-- <span>b<a href="#"></a></span> -->
-          </li>
-          <li class="meta__views">
-            <span class="icon mdi mdi-eye"></span><span>3678</span>
-          </li>
-          <li class="meta__comment-count">
-            <span class="icon mdi mdi-comment-outline"></span>
-            <a href="#">3</a>
+            <span>Стройторг<a href="#"></a></span>
           </li>
         </ul>
       </div>
@@ -46,29 +39,7 @@ export default {
   },
   data() {
     return {
-      id: 1,
-      tags: [
-        {
-          name: 'Тег 1',
-          link: '/tag'
-        },
-        {
-          name: 'тег (2)',
-          link: '/tag'
-        },
-        {
-          name: 'еще один Тег (3)',
-          link: '/tag'
-        },
-        {
-          name: 'Тег 4',
-          link: '/tag'
-        },
-        {
-          name: 'последний Тег (5)',
-          link: '/tag'
-        }
-      ]
+      id: 1
     }
   }
 }

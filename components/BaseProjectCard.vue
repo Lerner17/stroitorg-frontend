@@ -45,10 +45,12 @@ export default {
   height: 100%;
   object-position: center center;
   transition: 0.5s;
+  filter: grayscale(60%);
 }
 
 .BaseProjectCard:hover img {
   transform: scale(1.2);
+  filter: grayscale(0);
 }
 
 .BaseProjectCard__title {

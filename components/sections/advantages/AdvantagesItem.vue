@@ -1,11 +1,10 @@
 <template>
-  <div style="margin-bottom: 10px; width: 100%;">
+  <div style="margin-bottom: 10px; width: 100%;" @click="show">
     <div class="adv_item">
       <span
         v-if="!isShow"
         style="font-size: 20px; width: 40px; height 40px;"
         class="mdi mdi-plus"
-        @click="show"
       ></span>
       <span
         v-else
@@ -58,6 +57,9 @@ export default {
   letter-spacing: 0.1em;
   background-color: rgba(255, 255, 255, 0.1);
   font-size: 20px;
+  cursor: pointer;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .adv_content {

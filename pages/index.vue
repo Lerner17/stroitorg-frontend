@@ -10,7 +10,9 @@
         <slide v-for="slide in slider" :key="slide.id">
           <div
             class="slider__item"
-            :style="`background-image: url('${slide.image}');`"
+            :style="
+              `background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),url('${slide.image}');`
+            "
           >
             <div class="item__title">
               <span class="item_h1">{{ slide.title }}</span>

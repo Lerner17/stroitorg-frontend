@@ -12,32 +12,14 @@
           <button class="search-form__btn mdi mdi-magnify"></button>
         </div>
       </div>
-      <div class="sidebar__item">
-        <h6 class="sidebar__title">Теги</h6>
-        <div class="sidebar__buttons">
-          <BaseButton
-            v-for="(tag, i) in tags"
-            :key="i"
-            :to="tag.link"
-            :color="'primary'"
-            class="tags_button"
-            size="small"
-          >
-            {{ tag.name }}
-          </BaseButton>
-        </div>
-      </div>
     </div>
   </aside>
 </template>
 
 <script>
-import BaseButton from '../../BaseButton'
 export default {
   name: 'NewsSidebar',
-  components: {
-    BaseButton
-  },
+  components: {},
   props: {
     tags: {
       type: Array,

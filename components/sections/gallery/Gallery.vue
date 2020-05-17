@@ -17,7 +17,11 @@
         <div class="Gallery__slider_item">
           <div
             class="Gallery__slider_item__image"
-            :style="'background-image: url(' + a.image + ');'"
+            :style="
+              'background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(' +
+                a.image +
+                ');'
+            "
           >
             <div class="slider_item__text"></div>
           </div>

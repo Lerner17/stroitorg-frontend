@@ -1,12 +1,10 @@
 <template>
-  <div class="content__item">
+  <nuxt-link :to="`${slug}`" append class="content__item">
     <span class="content__item__date">{{ date | formatDate }}</span>
     <img v-if="image" :src="image" />
     <img v-else src="/images/no_image.png" />
-    <n-link :to="`${slug}`" append class="content__item__title">{{
-      title
-    }}</n-link>
-  </div>
+    <span class="content__item__title">{{ title }}</span>
+  </nuxt-link>
 </template>
 
 <script>
