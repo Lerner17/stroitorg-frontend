@@ -29,7 +29,7 @@
       <Gallery />
     </base-section>
     <base-section dark>
-      <Team />
+      <Advantages />
     </base-section>
     <base-section>
       <Projects />
@@ -63,7 +63,7 @@
       </div>
     </section>
     <base-section dark>
-      <Advantages />
+      <Team />
     </base-section>
     <base-section>
       <Partners />
