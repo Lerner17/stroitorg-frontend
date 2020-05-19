@@ -4,6 +4,18 @@
       <h6 class="asside_title">Категории</h6>
       <CategoryList :items="categories"></CategoryList>
       <BaseSearch />
+      <h6 class="asside_title pt-5">Фильтры</h6>
+      <div class="thickness">Толщина, мм</div>
+      <div class="thickness__wrapper">
+        <a
+          v-for="t in thickness"
+          :key="t.id"
+          class="thickness__item"
+          :href="'/catalog/thickness/?id=' + t.id"
+        >
+          {{ t.thickness }}
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +31,16 @@ export default {
       type: Array,
       default: null
     }
+  },
+  data() {
+    return {
+      thickness: []
+    }
+  },
+  mounted() {
+    this.$axios.$get('/catalog/thickness/').then((data) => {
+      this.thickness = data
+    })
   }
 }
 </script>
@@ -52,6 +74,28 @@ export default {
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', Arial, sans-serif;
   color: #151515;
+}
+
+.thickness__wrapper {
+  margin-top: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.thickness {
+  padding-left: 21px;
+  padding-top: 10px;
+  color: #777777;
+}
+
+.thickness__item {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #ffb426;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 1020px) {
