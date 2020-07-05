@@ -7,8 +7,16 @@
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
-      ><nuxt-link to="/catalog">Каталог</nuxt-link
-      ><span class="mdi mdi-arrow-right"></span><span>{{ product.name }}</span>
+      ><nuxt-link to="/catalog">Каталог</nuxt-link>
+      <nuxt-link
+        v-if="product.category"
+        :to="
+          `/catalog/category/${product.category.id}/${product.category.slug}`
+        "
+        class="mdi mdi-arrow-right"
+        >{{ product.category.name }}</nuxt-link
+      >
+      <span class="mdi mdi-arrow-right"></span><span>{{ product.name }}</span>
     </div>
     <div class="good">
       <hooper class="good_view" :settings="hooperSettings">
@@ -78,6 +86,11 @@ export default {
         wheelControl: false,
         playSpeed: 5000
       }
+    }
+  },
+  computed: {
+    category() {
+      return this.product.category.name
     }
   },
   mounted() {
