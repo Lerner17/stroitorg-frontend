@@ -1,9 +1,6 @@
 <template>
   <div class="GoodDetail">
-    <!-- <div class="parallax parallax--mask">
-      <h3 style="postition: relative; z-index: 1;">{{ product.name }}</h3>
-      <div class="header_parallax_row"></div>
-    </div> -->
+    <BaseModal :is-show="isShowModal" :item="modalItem" @close="modalClose" />
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
@@ -73,8 +70,9 @@
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
 import { mapActions } from 'vuex'
 import BaseButton from '@/components/BaseButton'
+import BaseModal from '@/components/BaseModal'
 export default {
-  components: { Hooper, Slide, HooperNavigation, BaseButton },
+  components: { Hooper, Slide, HooperNavigation, BaseButton, BaseModal },
   data() {
     return {
       count: 1,
@@ -85,7 +83,9 @@ export default {
         itemsToShow: 1,
         wheelControl: false,
         playSpeed: 5000
-      }
+      },
+      isShowModal: false,
+      modalItem: {}
     }
   },
   computed: {
@@ -113,6 +113,9 @@ export default {
         --this.count
       }
     },
+    modalClose() {
+      this.isShowModal = false
+    },
     addToCart() {
       // this.$store.dispatch({ type: 'updateCartWithPayload', count: 10 })
       const item = {
@@ -127,6 +130,8 @@ export default {
         this.updateCart(item)
         ++i
       }
+      this.modalItem = item
+      this.isShowModal = true
     }
   }
 }
@@ -162,10 +167,10 @@ export default {
 }
 
 .good_view {
-  max-width: 523px;
-  min-width: 350px;
+  max-width: 423px;
+  min-width: 250px;
   height: auto !important;
-  max-height: 523px;
+  max-height: 423px;
   width: 100%;
 }
 
