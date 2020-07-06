@@ -10,7 +10,6 @@
         v-else
         style="font-size: 20px; width: 40px; height 40px;"
         class="mdi mdi-minus"
-        @click="show"
       ></span>
       {{ title }}
     </div>

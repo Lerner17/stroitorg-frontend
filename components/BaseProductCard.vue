@@ -39,6 +39,7 @@
 <script>
 import { mapActions } from 'vuex'
 import BaseButton from '@/components/BaseButton'
+
 export default {
   name: 'BaseProductCard',
   components: { BaseButton },
@@ -72,19 +73,41 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      showModal: true
+    }
+  },
   methods: {
     ...mapActions({
       updateCart: 'cart/updateCart'
     }),
     addToCart() {
-      const item = {
+      // const item = {
+      //   id: this.id,
+      //   title: this.title,
+      //   price: this.price,
+      //   new_price: this.newPrice,
+      //   image: this.image
+      // }
+      this.updateCart({
         id: this.id,
-        title: this.title,
+        name: this.name,
+        image: this.image,
+        newPrice: this.newPrice,
         price: this.price,
-        new_price: this.newPrice,
-        image: this.image
-      }
-      this.updateCart(item)
+        isNew: this.isNew,
+        isSale: this.isSale
+      })
+      this.$emit('open', {
+        id: this.id,
+        name: this.name,
+        image: this.image,
+        newPrice: this.newPrice,
+        price: this.price,
+        isNew: this.isNew,
+        isSale: this.isSale
+      })
     }
   }
 }

@@ -24,8 +24,8 @@
             <nuxt-link tag="li" to="/news" class="menu__item"
               >Новости</nuxt-link
             >
-            <nuxt-link tag="li" to="/about" class="menu__item">
-              О компании
+            <nuxt-link tag="li" to="/contacts" class="menu__item">
+              Контакты
             </nuxt-link>
           </ul>
         </nav>

@@ -5,7 +5,8 @@ export default {
   updateCartWithPayload({ commit }, payload) {
     commit('UPDATE_CART_WITH_PAYLOAD', payload)
   },
-  removeItemInCart({ commit }, { item }) {
+  removeItemInCart({ commit }, item) {
+    console.log(item)
     commit('REMOVE_CART_ITEM', { item })
   },
   removeAllItemInCart({ commit }) {

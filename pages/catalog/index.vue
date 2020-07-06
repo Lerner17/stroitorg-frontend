@@ -1,9 +1,22 @@
 <template>
   <div class="Catalog">
+    <BaseModal :is-show="showModal" :item="itemModal" @close="closeModal" />
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
       ><span class="links_tree--bold">Каталог</span>
+    </div>
+    <!-- <h6 class="asside_title pt-5">Фильтры</h6> -->
+    <div class="thickness">Толщина, мм</div>
+    <div class="thickness__wrapper">
+      <a
+        v-for="t in thickness"
+        :key="t.id"
+        class="thickness__item"
+        :href="'/catalog/thickness/?id=' + t.id"
+      >
+        {{ t.thickness }}
+      </a>
     </div>
     <div class="Catalog__container">
       <CatalogSidebar :categories="categories" />
@@ -18,6 +31,7 @@
           :image="product.preview"
           :is-new="product.is_new"
           :is-sale="product.is_sale"
+          @open="openModal"
         />
       </div>
     </div>
@@ -33,9 +47,10 @@
 import BaseProductCard from '@/components/BaseProductCard'
 import BasePaggination from '@/components/BasePaggination'
 import CatalogSidebar from '@/components/CatalogSidebar'
+import BaseModal from '@/components/BaseModal'
 
 export default {
-  components: { CatalogSidebar, BaseProductCard, BasePaggination },
+  components: { CatalogSidebar, BaseProductCard, BasePaggination, BaseModal },
   async asyncData({ $axios }) {
     const data = await $axios.$get('/catalog/products/')
     const categories = await $axios.$get('/catalog/categories/')
@@ -48,16 +63,16 @@ export default {
     return {
       // products: [],
       categories: [],
-      search: ''
+      search: '',
+      showModal: false,
+      itemModal: {},
+      thickness: []
     }
   },
   mounted() {
-    // this.$axios.$get('/catalog/products/').then((data) => {
-    //   this.products = data.results
-    // })
-    // this.$axios.$get('/catalog/categories/').then((data) => {
-    //   this.categories = data
-    // })
+    this.$axios.$get('/catalog/thickness/').then((data) => {
+      this.thickness = data
+    })
   },
   methods: {
     changePage(page) {
@@ -70,12 +85,44 @@ export default {
     },
     getSearch() {
       this.$router.push('/catalog/sarch/')
+    },
+    addToCard(item) {},
+    openModal(item) {
+      this.itemModal = item
+      this.showModal = true
+    },
+    closeModal() {
+      this.showModal = false
     }
   }
 }
 </script>
 
 <style>
+.thickness__wrapper {
+  margin-top: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.thickness {
+  padding-right: 21px;
+  padding-top: 10px;
+  color: #777777;
+  text-align: right;
+}
+
+.thickness__item {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #ffb426;
+  color: white;
+  cursor: pointer;
+}
+
 .links_tree {
   width: 100%;
   color: #777777;

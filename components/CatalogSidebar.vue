@@ -4,7 +4,7 @@
       <h6 class="asside_title">Категории</h6>
       <CategoryList :items="categories"></CategoryList>
       <BaseSearch />
-      <h6 class="asside_title pt-5">Фильтры</h6>
+      <!-- <h6 class="asside_title pt-5">Фильтры</h6>
       <div class="thickness">Толщина, мм</div>
       <div class="thickness__wrapper">
         <a
@@ -15,7 +15,7 @@
         >
           {{ t.thickness }}
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -74,28 +74,6 @@ export default {
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', Arial, sans-serif;
   color: #151515;
-}
-
-.thickness__wrapper {
-  margin-top: 10px;
-  padding-left: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.thickness {
-  padding-left: 21px;
-  padding-top: 10px;
-  color: #777777;
-}
-
-.thickness__item {
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin: 0 5px;
-  background-color: #ffb426;
-  color: white;
-  cursor: pointer;
 }
 
 @media (max-width: 1020px) {

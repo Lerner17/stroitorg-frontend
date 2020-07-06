@@ -17,9 +17,11 @@
             <div class="item__title">
               <span class="item_h1">{{ slide.title }}</span>
               <span class="item_text">{{ slide.text }}</span>
-              <base-button class="item_btn" size="large" color="danger"
-                >Подробнее</base-button
-              >
+              <nuxt-link to="/about">
+                <base-button class="item_btn" size="large" color="danger"
+                  >Подробнее</base-button
+                >
+              </nuxt-link>
             </div>
           </div>
         </slide>
@@ -58,6 +60,12 @@
           <div class="item__number">200</div>
           <div class="item__descr">
             миллионов тон плитки мы продали
+          </div>
+        </div>
+        <div class="parallax__item">
+          <div class="item__number">5</div>
+          <div class="item__descr">
+            позиций в этом блоке
           </div>
         </div>
       </div>

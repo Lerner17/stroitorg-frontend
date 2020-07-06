@@ -1,5 +1,6 @@
 <template>
   <div class="Cart">
+    <BaseModalCart :is-show="isShow" @close="closeModalCart" />
     <div class="links_tree">
       <nuxt-link to="/">Главная</nuxt-link
       ><span class="mdi mdi-arrow-right"></span
@@ -15,6 +16,7 @@
               <th>Цена</th>
               <th>количество</th>
               <th>Итого</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -32,6 +34,9 @@
                 }}<span class="countButton" @click="removeCount(item)">+</span>
               </td>
               <td>{{ item.price * item.quantity }} ₽</td>
+              <td>
+                <span class="mdi mdi-close" @click="deleteItem(item)"></span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -39,7 +44,11 @@
         <div class="Car__actions">
           <div class="total">Итого</div>
           <span class="total_sum ml-8">{{ total }} ₽</span>
-          <base-button :disabled="!cart.length > 0" class="ml-5" color="danger"
+          <base-button
+            :disabled="!cart.length > 0"
+            class="ml-5"
+            color="danger"
+            @click="isShow = true"
             >Оформить заказ</base-button
           >
         </div>
@@ -49,9 +58,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import BaseButton from '@/components/BaseButton.vue'
+import BaseModalCart from '@/components/BaseModalCart'
 export default {
-  components: { BaseButton },
+  components: { BaseButton, BaseModalCart },
+  data() {
+    return {
+      isShow: false
+    }
+  },
   computed: {
     cart() {
       return this.$store.getters['cart/cartItems']
@@ -61,8 +77,18 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      removeItemInCart: 'cart/removeItemInCart'
+    }),
     addCount(item) {},
-    removeCount(item) {}
+    removeCount(item) {},
+    closeModalCart() {
+      this.isShow = false
+    },
+    deleteItem(item) {
+      console.log(item.id)
+      this.removeItemInCart(item)
+    }
   }
 }
 </script>
