@@ -54,6 +54,9 @@
               <a href="#" style="color: white">Наша история</a>
             </li>
             <li class="link">
+              <a href="#" style="color: white">Прайс-лист</a>
+            </li>
+            <li class="link">
               <a href="#" style="color: white">Последние новости</a>
             </li>
             <li class="link"><a href="#" style="color: white">Каталог</a></li>

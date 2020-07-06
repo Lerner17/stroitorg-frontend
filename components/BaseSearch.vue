@@ -5,6 +5,7 @@
       type="text"
       class="serach-form__input"
       placeholder="Поиск..."
+      @keypress.enter="getSearch"
     />
     <button
       class="search-form__btn mdi mdi-magnify"

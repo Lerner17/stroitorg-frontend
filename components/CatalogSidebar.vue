@@ -1,9 +1,9 @@
 <template>
   <div class="Catalog__container_sidebar">
     <div class="catalog-sidebar__inner-wrapper">
-      <h6 class="asside_title">Категории</h6>
+      <BaseSearch class="mb-5" />
+      <h6 class="asside_title">Категории товаров</h6>
       <CategoryList :items="categories"></CategoryList>
-      <BaseSearch />
       <!-- <h6 class="asside_title pt-5">Фильтры</h6>
       <div class="thickness">Толщина, мм</div>
       <div class="thickness__wrapper">
