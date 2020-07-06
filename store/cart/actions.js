@@ -11,5 +11,8 @@ export default {
   },
   removeAllItemInCart({ commit }) {
     commit('REMOVE_ALL')
+  },
+  removeOneItem({ commit }, item) {
+    commit('REMOVE_ONE_ITEM', item)
   }
 }

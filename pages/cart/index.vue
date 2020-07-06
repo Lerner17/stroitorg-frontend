@@ -29,9 +29,9 @@
               </td>
               <td>{{ item.price }} ₽</td>
               <td>
-                <span class="countButton" @click="addCount(item)">-</span
+                <span class="countButton" @click="removeCount(item)">-</span
                 >{{ item.quantity
-                }}<span class="countButton" @click="removeCount(item)">+</span>
+                }}<span class="countButton" @click="addCount(item)">+</span>
               </td>
               <td>{{ item.price * item.quantity }} ₽</td>
               <td>
@@ -78,15 +78,21 @@ export default {
   },
   methods: {
     ...mapActions({
-      removeItemInCart: 'cart/removeItemInCart'
+      removeItemInCart: 'cart/removeItemInCart',
+      updateCart: 'cart/updateCart',
+      removeOneItem: 'cart/removeOneItem'
     }),
-    addCount(item) {},
-    removeCount(item) {},
+    addCount(item) {
+      console.log(1)
+      this.updateCart(item)
+    },
+    removeCount(item) {
+      this.removeOneItem(item)
+    },
     closeModalCart() {
       this.isShow = false
     },
     deleteItem(item) {
-      console.log(item.id)
       this.removeItemInCart(item)
     }
   }
@@ -209,6 +215,9 @@ export default {
   padding-left: 10px;
   padding-right: 10px;
   margin: 10px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @media screen and (max-width: 1120px) {

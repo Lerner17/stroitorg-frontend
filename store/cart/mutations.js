@@ -19,8 +19,11 @@ export default {
     // }
     // ++state.cart[indexCartInState].quantity
   },
+  REMOVE_ONE_ITEM(state, item) {
+    const record = state.cart.find((element) => element.id === item.id)
+    --record.quantity
+  },
   REMOVE_CART_ITEM(state, item) {
-    console.log(item)
     const record = state.cart.find((element) => element.id === item.id)
     state.cart.splice(state.cart.indexOf(record), 1)
   },
