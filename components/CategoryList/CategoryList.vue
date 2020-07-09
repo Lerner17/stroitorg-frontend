@@ -4,6 +4,7 @@
       v-for="(item, j) in items"
       :key="j"
       :item="item"
+      :isLink="isLink"
     ></CategoryItem>
   </ul>
 </template>
@@ -19,6 +20,10 @@ export default {
     items: {
       type: Array,
       default: null
+    },
+    isLink: {
+      type: Boolean,
+      default: true
     }
   }
 }

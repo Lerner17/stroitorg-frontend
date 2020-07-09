@@ -78,6 +78,18 @@
           Связаться
         </BaseButton>
       </form>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d363539.48828320677!2d33.35784276985494!3d44.61436189628585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409525ef659144f5%3A0xbd2da7afff4d34cc!2z0KHQtdCy0LDRgdGC0L7Qv9C-0LvRjA!5e0!3m2!1sru!2sru!4v1588165883146!5m2!1sru!2sru"
+        width="100%"
+        height="350"
+        loading="lazy"
+        frameborder="0"
+        style="border:0;"
+        allowfullscreen
+        aria-hidden="false"
+        tabindex="0"
+        class="about__map"
+      ></iframe>
     </div>
     <div class="about__contacts">
       <div class="contacts__item">

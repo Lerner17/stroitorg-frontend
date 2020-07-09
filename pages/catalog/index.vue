@@ -65,15 +65,10 @@ export default {
       categories: [],
       search: '',
       showModal: false,
-      itemModal: {},
-      thickness: []
+      itemModal: {}
     }
   },
-  mounted() {
-    this.$axios.$get('/catalog/thickness/').then((data) => {
-      this.thickness = data
-    })
-  },
+  mounted() {},
   methods: {
     changePage(page) {
       this.$axios

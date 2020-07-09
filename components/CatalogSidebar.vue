@@ -3,7 +3,7 @@
     <div class="catalog-sidebar__inner-wrapper">
       <BaseSearch class="mb-5" />
       <h6 class="asside_title">Категории товаров</h6>
-      <CategoryList :items="categories"></CategoryList>
+      <CategoryList :items="categories" :is-link="false"></CategoryList>
       <!-- <h6 class="asside_title pt-5">Фильтры</h6>
       <div class="thickness">Толщина, мм</div>
       <div class="thickness__wrapper">

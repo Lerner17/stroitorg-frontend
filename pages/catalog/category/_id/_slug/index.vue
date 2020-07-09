@@ -6,6 +6,21 @@
       ><nuxt-link to="/catalog">Каталог</nuxt-link
       ><span class="mdi mdi-arrow-right"></span><span>{{ products.name }}</span>
     </div>
+    <div v-if="this.$route.params.id === '7' || this.$route.params.id === '8'">
+      <div class="thickness">
+        Толщина, мм
+      </div>
+      <div class="thickness__wrapper">
+        <a
+          v-for="t in thickness"
+          :key="t.id"
+          class="thickness__item"
+          :href="'/catalog/thickness/?id=' + t.id"
+        >
+          {{ t.thickness }}
+        </a>
+      </div>
+    </div>
     <div class="Catalog__container">
       <CatalogSidebar :categories="categories" />
       <div class="products">
@@ -34,7 +49,8 @@ export default {
     return {
       products: [],
       categories: [],
-      search: '1'
+      search: '',
+      thickness: []
     }
   },
   mounted() {
@@ -45,6 +61,9 @@ export default {
       })
     this.$axios.$get('/catalog/categories/').then((data) => {
       this.categories = data
+    })
+    this.$axios.$get('/catalog/thickness/').then((data) => {
+      this.thickness = data
     })
   },
   methods: {}

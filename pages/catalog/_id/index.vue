@@ -16,12 +16,29 @@
       <span class="mdi mdi-arrow-right"></span><span>{{ product.name }}</span>
     </div>
     <div class="good">
-      <hooper class="good_view" :settings="hooperSettings">
+      <!-- <hooper class="good_view" :settings="hooperSettings">
         <slide v-for="slide in slider" :key="slide.id">
           <img class="good__image" :src="slide.image" />
         </slide>
         <hooper-navigation slot="hooper-addons"></hooper-navigation>
-      </hooper>
+      </hooper> -->
+      <div class="slider_wrapper">
+        <hooper class="good_view" group="group1" :settings="hooperSettings">
+          <slide v-for="slide in slider" :key="slide.id">
+            <img class="good__image" :src="slide.image" />
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
+        <hooper class="good_view2" group="group1" :settings="hooperSecond">
+          <slide
+            v-for="slide in slider"
+            :key="slide.id"
+            class="good_view2__item"
+          >
+            <img class="good_view2__item__image" :src="slide.image" />
+          </slide>
+        </hooper>
+      </div>
       <div class="good_info">
         <h4>{{ product.name }}</h4>
         <div class="good_info_ctn">
@@ -79,13 +96,17 @@ export default {
       product: {},
       slider: [],
       hooperSettings: {
-        autoPlay: true,
         itemsToShow: 1,
         wheelControl: false,
         playSpeed: 5000
       },
       isShowModal: false,
-      modalItem: {}
+      modalItem: {},
+      hooperSecond: {
+        itemsToShow: 10,
+        centerMode: true,
+        mouseDrag: false
+      }
     }
   },
   computed: {
@@ -164,21 +185,6 @@ export default {
   line-height: 1.6;
   font-weight: 600;
   color: black;
-}
-
-.good_view {
-  max-width: 423px;
-  min-width: 250px;
-  height: auto !important;
-  max-height: 423px;
-  width: 100%;
-}
-
-.good__image {
-  width: 100%;
-  object-fit: cover;
-  object-position: center center;
-  height: 100%;
 }
 
 .good {
@@ -265,5 +271,51 @@ export default {
   background: #f3f3f3;
   border: none;
   outline: none;
+}
+
+.slider_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 423px;
+}
+
+.good_view {
+  width: 423px;
+  /* min-width: 400px; */
+  /* width: 100% !important; */
+  height: auto !important;
+  max-height: 423px;
+}
+
+.good_view2 {
+  user-select: none !important;
+  -webkit-user-select: none;
+  width: 423px;
+  height: auto !important;
+  max-height: 150px;
+  margin-top: 10px;
+}
+
+.good_view2__item {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.good_view2__item__image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* .good_view .hooper-slide { */
+/* width: 100% !important; */
+/* } */
+.good__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
 }
 </style>

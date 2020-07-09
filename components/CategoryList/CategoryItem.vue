@@ -2,19 +2,26 @@
   <li class="category__item">
     <span @mouseover="activeItem = item" @mouseout="activeItem = null">
       <n-link
+        v-if="isLink"
         :to="`/catalog/category/${item.id}/${item.slug}`"
         class="category__link"
         :active-class="'category__link_active'"
       >
         {{ item.name }}
       </n-link>
+      <span
+        v-else
+        class="category__link"
+        :active-class="'category__link_active'"
+        >{{ item.name }}</span
+      >
     </span>
     <img
       v-if="activeItem === item"
       class="tooltip"
       src="http://89.223.89.167/media/products/%D0%A6%D0%B5%D0%BC%D1%81%D0%B8%D1%81.jpg"
     />
-    <CategoryList v-if="item.children" :items="item.children" />
+    <CategoryList v-if="item.children" :items="item.children" :is-link="true" />
   </li>
 </template>
 
@@ -36,6 +43,10 @@ export default {
     items: {
       type: Array,
       default: null
+    },
+    isLink: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
