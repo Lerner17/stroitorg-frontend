@@ -278,7 +278,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  width: 423px;
+  width: 323px;
 }
 
 .good_view {
