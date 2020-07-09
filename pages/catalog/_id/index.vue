@@ -286,13 +286,13 @@ export default {
   /* min-width: 400px; */
   /* width: 100% !important; */
   height: auto !important;
-  max-height: 323px;
+  max-height: 423px;
 }
 
 .good_view2 {
   user-select: none !important;
   -webkit-user-select: none;
-  width: 423px;
+  width: 323px;
   height: auto !important;
   max-height: 150px;
   margin-top: 10px;
