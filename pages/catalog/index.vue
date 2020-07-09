@@ -7,17 +7,6 @@
       ><span class="links_tree--bold">Каталог</span>
     </div>
     <!-- <h6 class="asside_title pt-5">Фильтры</h6> -->
-    <div class="thickness">Толщина, мм</div>
-    <div class="thickness__wrapper">
-      <a
-        v-for="t in thickness"
-        :key="t.id"
-        class="thickness__item"
-        :href="'/catalog/thickness/?id=' + t.id"
-      >
-        {{ t.thickness }}
-      </a>
-    </div>
     <div class="Catalog__container">
       <CatalogSidebar :categories="categories" />
       <div class="products">
