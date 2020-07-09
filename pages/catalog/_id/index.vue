@@ -286,7 +286,7 @@ export default {
   /* min-width: 400px; */
   /* width: 100% !important; */
   height: auto !important;
-  max-height: 423px;
+  max-height: 323px;
 }
 
 .good_view2 {
